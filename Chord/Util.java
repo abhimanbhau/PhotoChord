@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 
 /**
- * A helper method that does the following things:
+ * A Util class which provides  method that does the following things:
  * (1) Hashing - for string, for socket address, and integer number
  * (2) Computation - relative id (one node is how far behind another node),
  * a address' hex string and its percentage position in the ring (so we can
@@ -19,18 +19,18 @@ import java.util.HashMap;
  * socket address/response, create socket address object using string, read
  * string from an input stream.
  *
- *  * @author Raghav Bhandari
- *  * @author Krishna Kandhani
- *  * @author Abhiman Kolte
- *  * @author Dhruv Mevada
+ *  @author Raghav Bhandari
+ *  @author Krishna Kandhani
+ *  @author Abhiman Kolte
+ *  @author Dhruv Mevada
  */
 
 public class Util {
 
     private static HashMap<Integer, Long> powerOfTwo = null;
 
-    public Util() {
-        //initialize power of two table
+    public Util()
+    {
         powerOfTwo = new HashMap<Integer, Long>();
         long base = 1;
         for (int i = 0; i <= 32; i++) {
@@ -41,9 +41,6 @@ public class Util {
 
     /**
      * Compute a socket address' 32 bit identifier
-     *
-     * @param address: socket address
-     * @return 32-bit identifier in long type
      */
     public static long hashSocketAddress(InetSocketAddress address) {
         return hashHashCode(address.hashCode());
@@ -51,9 +48,6 @@ public class Util {
 
     /**
      * Compute a string's 32 bit identifier
-     *
-     * @param str: string
-     * @return 32-bit identifier in long type
      */
     public static long hashString(String str) {
         return hashHashCode(str.hashCode());
@@ -61,18 +55,15 @@ public class Util {
 
     /**
      * Compute a 32 bit integer's identifier
-     *
-     * @param i: integer
-     * @return 32-bit identifier in long type
      */
     private static long hashHashCode(int i) {
 
         //32 bit regular hash code -> byte[4]
-        byte[] hashbytes = new byte[4];
-        hashbytes[0] = (byte) (i >> 24);
-        hashbytes[1] = (byte) (i >> 16);
-        hashbytes[2] = (byte) (i >> 8);
-        hashbytes[3] = (byte) (i /*>> 0*/);
+        byte[] hashBytes = new byte[4];
+        hashBytes[0] = (byte) (i >> 24);
+        hashBytes[1] = (byte) (i >> 16);
+        hashBytes[2] = (byte) (i >> 8);
+        hashBytes[3] = (byte) (i);
 
         // try to create SHA1 digest
         MessageDigest md = null;
@@ -90,7 +81,7 @@ public class Util {
         // -> compressed result in long type
         if (md != null) {
             md.reset();
-            md.update(hashbytes);
+            md.update(hashBytes);
             byte[] result = md.digest();
 
             byte[] compressed = new byte[4];

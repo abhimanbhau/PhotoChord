@@ -2,7 +2,7 @@ import java.net.InetSocketAddress;
 import java.util.Random;
 
 /**
- * Fixfingers thread that periodically access a random entry in finger table
+ * UpdateFingers thread that periodically access a random entry in finger table
  * and fix it.
  *
  * @author Raghav Bhandari

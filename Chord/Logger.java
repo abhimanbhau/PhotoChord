@@ -3,7 +3,7 @@
  * @author Krishna Kandhani
  * @author Abhiman Kolte
  * @author Dhruv Mevada
-
+ *
  * A simple wrapper over system out.
  */
 public class Logger {
