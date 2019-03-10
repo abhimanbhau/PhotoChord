@@ -18,10 +18,10 @@ public class Node {
     private InetSocketAddress predecessor;
     private HashMap<Integer, InetSocketAddress> finger;
 
-    private Listener listener;
-    private Stabilize stabilize;
-    private FixFingers fix_fingers;
-    private AskPredecessor ask_predecessor;
+    private ListenerThread listenerThread;
+    private StabilizeThread stabilizeThread;
+    private UpdateFingersThread fix_fingers;
+    private PredecessorCheckThread ask_predecessor;
 
     /**
      * Constructor
@@ -42,10 +42,10 @@ public class Node {
         predecessor = null;
 
         // initialize threads
-        listener = new Listener(this);
-        stabilize = new Stabilize(this);
-        fix_fingers = new FixFingers(this);
-        ask_predecessor = new AskPredecessor(this);
+        listenerThread = new ListenerThread(this);
+        stabilizeThread = new StabilizeThread(this);
+        fix_fingers = new UpdateFingersThread(this);
+        ask_predecessor = new PredecessorCheckThread(this);
     }
 
     /**
@@ -62,15 +62,15 @@ public class Node {
         if (contact != null && !contact.equals(localAddress)) {
             InetSocketAddress successor = Util.requestAddress(contact, "FINDSUCC_" + localId);
             if (successor == null) {
-                System.out.println("\nCannot find node you are trying to contact. Please exit.\n");
+                Logger.log("\nCannot find node you are trying to contact. Please exit.\n");
                 return false;
             }
             updateIthFinger(1, successor);
         }
 
         // start all threads
-        listener.start();
-        stabilize.start();
+        listenerThread.start();
+        stabilizeThread.start();
         fix_fingers.start();
         ask_predecessor.start();
 
@@ -165,7 +165,7 @@ public class Node {
                     n = most_recently_alive;
                     n_successor = Util.requestAddress(n, "YOURSUCC");
                     if (n_successor == null) {
-                        System.out.println("It's not possible.");
+                        Logger.log("It's not possible.");
                         return localAddress;
                     }
                     continue;
@@ -428,43 +428,50 @@ public class Node {
      */
 
     public void printNeighbors() {
-        System.out.println("\nYou are listening on port " + localAddress.getPort() + "."
+        Logger.log("\nYou are listening on port " + localAddress.getPort() + "."
                 + "\nYour position is " + Util.hexIdAndPosition(localAddress) + ".");
         InetSocketAddress successor = finger.get(1);
 
         // if it cannot find both predecessor and successor
         if ((predecessor == null || predecessor.equals(localAddress)) && (successor == null || successor.equals(localAddress))) {
-            System.out.println("Your predecessor is yourself.");
-            System.out.println("Your successor is yourself.");
+            Logger.log("Your predecessor is yourself.");
+            Logger.log("Your successor is yourself.");
 
         }
 
         // else, it can find either predecessor or successor
         else {
             if (predecessor != null) {
-                System.out.println("Your predecessor is node " + predecessor.getAddress().toString() + ", "
+                Logger.log("Your predecessor is node " + predecessor.getAddress().toString() + ", "
                         + "port " + predecessor.getPort() + ", position " + Util.hexIdAndPosition(predecessor) + ".");
             } else {
-                System.out.println("Your predecessor is updating.");
+                Logger.log("Your predecessor is updating.");
             }
 
             if (successor != null) {
-                System.out.println("Your successor is node " + successor.getAddress().toString() + ", "
+                Logger.log("Your successor is node " + successor.getAddress().toString() + ", "
                         + "port " + successor.getPort() + ", position " + Util.hexIdAndPosition(successor) + ".");
             } else {
-                System.out.println("Your successor is updating.");
+                Logger.log("Your successor is updating.");
             }
         }
     }
 
     public void printDataStructure() {
-        System.out.println("\n==============================================================");
-        System.out.println("\nLOCAL:\t\t\t\t" + localAddress.toString() + "\t" + Util.hexIdAndPosition(localAddress));
+        Logger.log("\n--------------------------------------------------------------");
+        Logger.log("\nLOCAL:\t\t\t\t" + localAddress.toString() + "\t" + Util.hexIdAndPosition(localAddress));
+
         if (predecessor != null)
-            System.out.println("\nPREDECESSOR:\t\t\t" + predecessor.toString() + "\t" + Util.hexIdAndPosition(predecessor));
+        {
+            Logger.log("\nPREDECESSOR:\t\t\t" + predecessor.toString() + "\t" + Util.hexIdAndPosition(predecessor));
+        }
+
         else
-            System.out.println("\nPREDECESSOR:\t\t\tNULL");
-        System.out.println("\nFINGER TABLE:\n");
+        {
+            Logger.log("\nPREDECESSOR:\t\t\tNULL");
+        }
+        
+        Logger.log("\nFINGER TABLE:\n");
         for (int i = 1; i <= 32; i++) {
             long ithstart = Util.ithStart(Util.hashSocketAddress(localAddress), i);
             InetSocketAddress f = finger.get(i);
@@ -475,21 +482,21 @@ public class Node {
 
             else
                 sb.append("NULL");
-            System.out.println(sb.toString());
+            Logger.log(sb.toString());
         }
-        System.out.println("\n==============================================================\n");
+        Logger.log("\n==============================================================\n");
     }
 
     /**
      * Stop this node's all threads.
      */
     public void stopAllThreads() {
-        if (listener != null)
-            listener.toDie();
+        if (listenerThread != null)
+            listenerThread.toDie();
         if (fix_fingers != null)
             fix_fingers.toDie();
-        if (stabilize != null)
-            stabilize.toDie();
+        if (stabilizeThread != null)
+            stabilizeThread.toDie();
         if (ask_predecessor != null)
             ask_predecessor.toDie();
     }

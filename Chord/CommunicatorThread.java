@@ -5,20 +5,23 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 /**
- * Talker thread that processes request accepted by listener and writes
+ * CommunicatorThread thread that processes request accepted by listener and writes
  * response to socket.
  *
- * @author Chuan Xia
+ * @author Raghav Bhandari
+ * @author Krishna Kandhani
+ * @author Abhiman Kolte
+ * @author Dhruv Mevada
  */
 
-public class Talker implements Runnable {
+public class CommunicatorThread implements Runnable {
 
     Socket talkSocket;
     private Node local;
 
-    public Talker(Socket _talkSocket, Node _local) {
-        talkSocket = _talkSocket;
-        local = _local;
+    public CommunicatorThread(Socket socket, Node local) {
+        talkSocket = socket;
+        this.local = local;
     }
 
     public void run() {
@@ -35,7 +38,7 @@ public class Talker implements Runnable {
             input.close();
         } catch (IOException e) {
             throw new RuntimeException(
-                    "Cannot talk.\nServer port: " + local.getAddress().getPort() + "; Talker port: " + talkSocket.getPort(), e);
+                    "Cannot talk.\nServer port: " + local.getAddress().getPort() + "; CommunicatorThread port: " + talkSocket.getPort(), e);
         }
     }
 

@@ -5,17 +5,20 @@ import java.util.Random;
  * Fixfingers thread that periodically access a random entry in finger table
  * and fix it.
  *
- * @author Chuan Xia
+ * @author Raghav Bhandari
+ * @author Krishna Kandhani
+ * @author Abhiman Kolte
+ * @author Dhruv Mevada
  */
 
-public class FixFingers extends Thread {
+public class UpdateFingersThread extends Thread {
 
     Random random;
     boolean alive;
     private Node local;
     int lastFinger = 0;
 
-    public FixFingers(Node node) {
+    public UpdateFingersThread(Node node) {
         local = node;
         alive = true;
         random = new Random();

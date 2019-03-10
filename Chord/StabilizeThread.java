@@ -1,19 +1,22 @@
 import java.net.InetSocketAddress;
 
 /**
- * Stabilize thread that periodically asks successor for its predecessor
+ * StabilizeThread thread that periodically asks successor for its predecessor
  * and determine if current node should update or delete its successor.
  *
- * @author Chuan Xia
+ * @author Raghav Bhandari
+ * @author Krishna Kandhani
+ * @author Abhiman Kolte
+ * @author Dhruv Mevada
  */
 
-public class Stabilize extends Thread {
+public class StabilizeThread extends Thread {
 
     private Node local;
     private boolean alive;
 
-    public Stabilize(Node _local) {
-        local = _local;
+    public StabilizeThread(Node local) {
+        this.local = local;
         alive = true;
     }
 

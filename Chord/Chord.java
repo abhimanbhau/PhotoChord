@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author Krishna Kandhani
  * @author Abhiman Kolte
  * @author Dhruv Mevada
- * <p>
+
  * Driver class for chord.
  */
 public class Chord {
@@ -74,19 +74,17 @@ public class Chord {
         Scanner in = new Scanner(System.in);
         while (true) {
             Logger.log("Select from the options below: ");
-            Logger.log("- Info");
-            Logger.log("- Quit");
+            Logger.log("- Data");
+            Logger.log("- Exit");
 
             String userCommand = in.next();
 
-            if (userCommand.equalsIgnoreCase("info")) {
+            if (userCommand.equalsIgnoreCase("data")) {
                 node.printDataStructure();
                 node.printNeighbors();
-            } else if (userCommand.equalsIgnoreCase("quit")) {
-                //stop threads
+            } else if (userCommand.equalsIgnoreCase("exit")) {
                 Logger.log("");
                 node.stopAllThreads();
-//				PersistentLogger.getInstance().logD("Logger stopped");
                 System.exit(0);
             }
         }

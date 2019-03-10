@@ -19,16 +19,16 @@ import java.util.HashMap;
  * socket address/response, create socket address object using string, read
  * string from an input stream.
  *
- * @author Chuan Xia
+ *  * @author Raghav Bhandari
+ *  * @author Krishna Kandhani
+ *  * @author Abhiman Kolte
+ *  * @author Dhruv Mevada
  */
 
 public class Util {
 
     private static HashMap<Integer, Long> powerOfTwo = null;
 
-    /**
-     * Constructor
-     */
     public Util() {
         //initialize power of two table
         powerOfTwo = new HashMap<Integer, Long>();
@@ -42,23 +42,21 @@ public class Util {
     /**
      * Compute a socket address' 32 bit identifier
      *
-     * @param addr: socket address
+     * @param address: socket address
      * @return 32-bit identifier in long type
      */
-    public static long hashSocketAddress(InetSocketAddress addr) {
-        int i = addr.hashCode();
-        return hashHashCode(i);
+    public static long hashSocketAddress(InetSocketAddress address) {
+        return hashHashCode(address.hashCode());
     }
 
     /**
      * Compute a string's 32 bit identifier
      *
-     * @param s: string
+     * @param str: string
      * @return 32-bit identifier in long type
      */
-    public static long hashString(String s) {
-        int i = s.hashCode();
-        return hashHashCode(i);
+    public static long hashString(String str) {
+        return hashHashCode(str.hashCode());
     }
 
     /**
@@ -129,11 +127,11 @@ public class Util {
      * Compute a socket address' SHA-1 hash in hex
      * and its approximate position in string
      *
-     * @param addr
+     * @param address
      * @return
      */
-    public static String hexIdAndPosition(InetSocketAddress addr) {
-        long hash = hashSocketAddress(addr);
+    public static String hexIdAndPosition(InetSocketAddress address) {
+        long hash = hashSocketAddress(address);
         return (longTo8DigitHex(hash) + " (" + hash * 100 / Util.getPowerOfTwo(32) + "%)");
     }
 
@@ -233,7 +231,7 @@ public class Util {
             PrintStream output = new PrintStream(talkSocket.getOutputStream());
             output.println(req);
         } catch (IOException e) {
-            //System.out.println("\nCannot send request to "+server.toString()+"\nRequest is: "+req+"\n");
+            //Logger.log("\nCannot send request to "+server.toString()+"\nRequest is: "+req+"\n");
             return null;
         }
 
@@ -249,7 +247,7 @@ public class Util {
         try {
             input = talkSocket.getInputStream();
         } catch (IOException e) {
-            System.out.println("Cannot get input stream from " + server.toString() + "\nRequest is: " + req + "\n");
+            Logger.log("Cannot get input stream from " + server.toString() + "\nRequest is: " + req + "\n");
         }
         String response = Util.inputStreamToString(input);
 
@@ -297,7 +295,7 @@ public class Util {
             try {
                 m_ip = InetAddress.getByName(ip);
             } catch (UnknownHostException e) {
-                System.out.println("Cannot create ip address: " + ip);
+                Logger.log("Cannot create ip address: " + ip);
                 return null;
             }
 
@@ -337,7 +335,7 @@ public class Util {
         try {
             line = reader.readLine();
         } catch (IOException e) {
-            System.out.println("Cannot read line from input stream.");
+            Logger.log("Cannot read line from input stream.");
             return null;
         }
 

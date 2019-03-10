@@ -4,14 +4,17 @@ import java.net.InetSocketAddress;
  * Ask predecessor thread that periodically asks for predecessor's keep-alive,
  * and delete predecessor if it's dead.
  *
- * @author Chuan Xia
+ * @author Raghav Bhandari
+ * @author Krishna Kandhani
+ * @author Abhiman Kolte
+ * @author Dhruv Mevada
  */
-public class AskPredecessor extends Thread {
+public class PredecessorCheckThread extends Thread {
 
     private Node local;
     private boolean alive;
 
-    public AskPredecessor(Node _local) {
+    public PredecessorCheckThread(Node _local) {
         local = _local;
         alive = true;
     }
