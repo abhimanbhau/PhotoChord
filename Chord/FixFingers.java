@@ -13,6 +13,7 @@ public class FixFingers extends Thread {
     Random random;
     boolean alive;
     private Node local;
+    int lastFinger = 0;
 
     public FixFingers(Node node) {
         local = node;
@@ -24,6 +25,10 @@ public class FixFingers extends Thread {
     public void run() {
         while (alive) {
             int i = random.nextInt(31) + 2;
+            while(i == lastFinger) {
+            	i = random.nextInt(31) + 2;
+			}
+            lastFinger = i;
             InetSocketAddress ithfinger = local.find_successor(Util.ithStart(local.getId(), i));
             local.updateFingers(i, ithfinger);
             try {
