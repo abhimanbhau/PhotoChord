@@ -5,7 +5,7 @@ package edu.scu.util;
  * @author Krishna Kandhani
  * @author Abhiman Kolte
  * @author Dhruv Mevada
- *
+ * <p>
  * A simple wrapper over system out.
  */
 public class Logger {

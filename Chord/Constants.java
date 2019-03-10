@@ -1,6 +1,7 @@
 import java.util.HashMap;
 
 public class Constants {
+    public static final int _mpiPort = 5678;
     public static HashMap<String, Integer> _refMap = new HashMap<String, Integer>() {{
         put("Games", 1);
         put("Movies", 2);
@@ -8,6 +9,4 @@ public class Constants {
         put("Nature", 4);
         put("Car", 5);
     }};
-
-    public static final int _mpiPort = 5678;
 }

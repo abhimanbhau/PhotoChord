@@ -7,11 +7,10 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
-import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class MessagePassingThread extends Thread{
+public class MessagePassingThread extends Thread {
     ServerSocket serverSocket;
     Socket socket;
     boolean _run = true;
@@ -26,7 +25,7 @@ public class MessagePassingThread extends Thread{
 
     @Override
     public void run() {
-        while(_run) {
+        while (_run) {
             try {
                 socket = serverSocket.accept();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));

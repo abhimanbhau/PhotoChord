@@ -1,9 +1,9 @@
 package edu.scu.thread;
 
-import java.net.InetSocketAddress;
-
 import edu.scu.core.Node;
 import edu.scu.util.Util;
+
+import java.net.InetSocketAddress;
 
 /**
  * StabilizeThread thread that periodically asks successor for its predecessor

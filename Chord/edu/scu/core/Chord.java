@@ -3,7 +3,9 @@ package edu.scu.core;
 import edu.scu.util.Logger;
 import edu.scu.util.Util;
 
-import java.net.*;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.UnknownHostException;
 import java.util.Scanner;
 
 /**
@@ -11,7 +13,7 @@ import java.util.Scanner;
  * @author Krishna Kandhani
  * @author Abhiman Kolte
  * @author Dhruv Mevada
- *
+ * <p>
  * Driver class for Chord application.
  */
 public class Chord {

@@ -1,11 +1,11 @@
 package edu.scu.core;
 
-import edu.scu.util.Logger;
-import edu.scu.util.Util;
 import edu.scu.thread.ListenerThread;
 import edu.scu.thread.PredecessorCheckThread;
 import edu.scu.thread.StabilizeThread;
 import edu.scu.thread.UpdateFingersThread;
+import edu.scu.util.Logger;
+import edu.scu.util.Util;
 
 import java.net.InetSocketAddress;
 import java.util.HashMap;
@@ -162,7 +162,7 @@ public class Node {
                 else if (result.equals(n))
                     return result;
 
-                // else n's closest is other node "result"
+                    // else n's closest is other node "result"
                 else {
 
                     mostRecentlyAlive = n;
@@ -413,16 +413,12 @@ public class Node {
         Logger.log("\n--------------------------------------------------------------");
         Logger.log("\nLocal: " + localAddress.toString());
 
-        if (predecessor != null)
-        {
+        if (predecessor != null) {
             Logger.log("\nPredecessor: " + predecessor.toString());
-        }
-
-        else
-        {
+        } else {
             Logger.log("\nPredecessor: null");
         }
-        
+
         Logger.log("\nFinger table: \n");
 
         for (int i = 1; i <= 5; i++) {
@@ -430,7 +426,7 @@ public class Node {
             InetSocketAddress fingerId = finger.get(i);
             StringBuilder sb = new StringBuilder();
             sb.append(i + "\t");
-            
+
             if (fingerId != null)
                 sb.append(fingerId.toString() + "\t" + Util.hashSocketAddress(fingerId));
 

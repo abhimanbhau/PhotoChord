@@ -1,9 +1,9 @@
 package edu.scu.thread;
 
-import java.net.InetSocketAddress;
-
 import edu.scu.core.Node;
 import edu.scu.util.Util;
+
+import java.net.InetSocketAddress;
 
 /**
  * Predecessor thread that periodically asks for predecessor's keep-alive,

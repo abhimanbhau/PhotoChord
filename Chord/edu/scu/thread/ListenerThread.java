@@ -1,11 +1,11 @@
 package edu.scu.thread;
 
+import edu.scu.core.Node;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-
-import edu.scu.core.Node;
 
 /**
  * ListenerThread thread that keeps listening to a port and asks talker thread to process

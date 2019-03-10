@@ -13,18 +13,17 @@ import java.util.HashMap;
  * A Util class which provide methods for hashing, sending requests,
  * and more.
  *
- *  @author Raghav Bhandari
- *  @author Krishna Kandhani
- *  @author Abhiman Kolte
- *  @author Dhruv Mevada
+ * @author Raghav Bhandari
+ * @author Krishna Kandhani
+ * @author Abhiman Kolte
+ * @author Dhruv Mevada
  */
 
 public class Util {
 
     private static HashMap<Integer, Long> powerOfTwo = null;
 
-    public Util()
-    {
+    public Util() {
         powerOfTwo = new HashMap<Integer, Long>();
         long base = 1;
         for (int i = 0; i <= 32; i++) {
@@ -39,7 +38,7 @@ public class Util {
     public static long hashSocketAddress(InetSocketAddress address) {
 //        return hashHashCode(address.hashCode());
 //        Logger.log(address.getHostString());
-        String lastTriplet = address.getHostString().substring(address.getHostString().lastIndexOf(".")+1);
+        String lastTriplet = address.getHostString().substring(address.getHostString().lastIndexOf(".") + 1);
 //        Logger.log(lastTriplet);
         return Integer.parseInt(lastTriplet) % 32;
     }
@@ -89,7 +88,7 @@ public class Util {
             }
 
             long ret = (compressed[0] & 0xFF) << 24 | (compressed[1] & 0xFF) << 16 | (compressed[2] & 0xFF) << 8 | (compressed[3] & 0xFF);
-            ret = ret & (long) 0xFFFFFFFFL;
+            ret = ret & 0xFFFFFFFFL;
             return ret;
         }
         return 0;
@@ -159,12 +158,10 @@ public class Util {
 
         if (response == null) {
             return null;
-        }
-
-        else if (response.startsWith("NOTHING"))
+        } else if (response.startsWith("NOTHING"))
             return server;
 
-        // server found something, use response to create
+            // server found something, use response to create
         else {
             return Util.createSocketAddress(response.split("_")[1]);
         }
