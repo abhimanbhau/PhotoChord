@@ -107,8 +107,6 @@ public class Node {
     public InetSocketAddress findSuccessor(long id) {
 
         InetSocketAddress value = this.getSuccessor();
-
-        // find predecessor
         InetSocketAddress pre = findPredecessor(id);
 
         // if other node found, ask it for its successor
@@ -357,9 +355,6 @@ public class Node {
         }
     }
 
-    /**
-     * Clear predecessor.
-     */
     public void clearPredecessor() {
         setPredecessor(null);
     }
@@ -376,9 +371,6 @@ public class Node {
         return predecessor;
     }
 
-    /**
-     * Set predecessor using a new value.
-     */
     private synchronized void setPredecessor(InetSocketAddress pre) {
         predecessor = pre;
     }
@@ -432,11 +424,13 @@ public class Node {
         }
         
         Logger.log("\nFinger table: \n");
+
         for (int i = 1; i <= 5; i++) {
             long ithstart = Util.ithStart(Util.hashSocketAddress(localAddress), i);
             InetSocketAddress fingerId = finger.get(i);
             StringBuilder sb = new StringBuilder();
             sb.append(i + "\t");
+            
             if (fingerId != null)
                 sb.append(fingerId.toString() + "\t" + Util.hashSocketAddress(fingerId));
 
