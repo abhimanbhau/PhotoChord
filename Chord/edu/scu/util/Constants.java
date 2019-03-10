@@ -12,6 +12,8 @@ import java.util.HashMap;
  */
 public class Constants {
     public static final int _mpiPort = 5678;
+    public static final String _photoStoragePath = "/Users/akolte/pics";
+
     public static HashMap<String, Integer> refMap =
             new HashMap<String, Integer>() {
                 {
@@ -22,4 +24,14 @@ public class Constants {
                     put("Car", 5);
                 }
             };
+
+    public static HashMap<Integer, String> _nodeIpMap = new HashMap<Integer, String>() {
+        {
+            put(1, "121");
+            put(2, "121");
+            put(3, "121");
+            put(4, "121");
+            put(5, "121");
+        }
+    };
 }

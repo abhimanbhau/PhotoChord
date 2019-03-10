@@ -5,24 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46afe717-614e-4a2a-a2f3-08f74d77de01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Chord-UI/src/PicturesServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chord-UI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord-UI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chord-UI/out/artifacts/Chord_UI_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord-UI/out/artifacts/Chord_UI_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chord-UI/out/artifacts/Chord_UI_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord-UI/out/artifacts/Chord_UI_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chord-UI/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord-UI/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chord-UI/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord-UI/web/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu/scu/core/Chord.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/core/Chord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chord.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Chord.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edu/scu/core/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/core/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu/scu/thread/CommunicatorThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/CommunicatorThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu/scu/thread/ListenerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/ListenerThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edu/scu/thread/MessagePassingThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/MessagePassingThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu/scu/thread/PredecessorCheckThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/PredecessorCheckThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu/scu/thread/StabilizeThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/StabilizeThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu/scu/thread/UpdateFingersThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/UpdateFingersThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edu/scu/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/util/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu/scu/util/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/util/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu/scu/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/util/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chord/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chord/Chord.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chord/Chord.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,15 +24,21 @@
     <favorites_list name="Chord" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/edu/scu/core/Chord.java">
+        <entry file="file://$PROJECT_DIR$/edu/scu/thread/MessagePassingThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-776">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="540">
+              <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edu/scu/util/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -105,13 +100,13 @@
         <option value="$PROJECT_DIR$/edu/scu/thread/StabilizeThread.java" />
         <option value="$PROJECT_DIR$/edu/scu/thread/PredecessorCheckThread.java" />
         <option value="$PROJECT_DIR$/edu/scu/Node.java" />
-        <option value="$PROJECT_DIR$/edu/scu/util/Constants.java" />
         <option value="$PROJECT_DIR$/edu/scu/thread/CommunicatorThread.java" />
         <option value="$PROJECT_DIR$/Constants.java" />
         <option value="$PROJECT_DIR$/edu/scu/thread/UpdateFingersThread.java" />
         <option value="$PROJECT_DIR$/edu/scu/util/Util.java" />
         <option value="$PROJECT_DIR$/edu/scu/core/Chord.java" />
         <option value="$PROJECT_DIR$/edu/scu/core/Node.java" />
+        <option value="$PROJECT_DIR$/edu/scu/util/Constants.java" />
         <option value="$PROJECT_DIR$/edu/scu/thread/MessagePassingThread.java" />
       </list>
     </option>
@@ -127,8 +122,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -163,15 +156,22 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -211,6 +211,8 @@
       <workItem from="1552252330717" duration="3352000" />
       <workItem from="1552258047307" duration="39000" />
       <workItem from="1552258102878" duration="54000" />
+      <workItem from="1552258172065" duration="429000" />
+      <workItem from="1552258657295" duration="1354000" />
     </task>
     <task id="LOCAL-00001" summary="cleanup">
       <created>1552252684047</created>
@@ -230,12 +232,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22081000" />
+    <option name="totallyTimeSpent" value="23864000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22317597" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22889842" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -243,8 +246,8 @@
       <window_info id="Image Layers" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32837838" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32872927" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32734805" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -256,6 +259,7 @@
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32894737" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.32972974" />
+      <window_info anchor="bottom" id="Dependency Viewer" order="14" weight="0.32872927" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -266,6 +270,7 @@
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" x="100" y="123" width="1240" height="632" id="DSM" order="10" type="FLOATING" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,13 +361,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Constants.java" />
-    <entry file="file://$PROJECT_DIR$/edu/scu/util/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edu/scu/thread/ListenerThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-213">
@@ -373,30 +371,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edu/scu/core/Node.java">
+    <entry file="file://$PROJECT_DIR$/edu/scu/core/Chord.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
+        <state relative-caret-position="1170">
+          <caret line="78" column="44" lean-forward="true" selection-start-line="78" selection-start-column="44" selection-end-line="78" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu/scu/core/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="47" column="49" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu/scu/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/edu/scu/thread/MessagePassingThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu/scu/core/Chord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-776">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="540">
+          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
         </state>
       </provider>
     </entry>

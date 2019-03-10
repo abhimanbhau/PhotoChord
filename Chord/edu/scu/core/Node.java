@@ -45,7 +45,7 @@ public class Node {
         stabilizeThread = new StabilizeThread(this);
         fixFingers = new UpdateFingersThread(this);
         askPredecessor = new PredecessorCheckThread(this);
-        mpiThread = new MessagePassingThread();
+        mpiThread = new MessagePassingThread(this);
     }
 
     /**
