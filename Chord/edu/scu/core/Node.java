@@ -1,9 +1,6 @@
 package edu.scu.core;
 
-import edu.scu.thread.ListenerThread;
-import edu.scu.thread.PredecessorCheckThread;
-import edu.scu.thread.StabilizeThread;
-import edu.scu.thread.UpdateFingersThread;
+import edu.scu.thread.*;
 import edu.scu.util.Logger;
 import edu.scu.util.Util;
 
@@ -29,8 +26,9 @@ public class Node {
 
     private ListenerThread listenerThread;
     private StabilizeThread stabilizeThread;
-    private UpdateFingersThread fix_fingers;
-    private PredecessorCheckThread ask_predecessor;
+    private UpdateFingersThread fixFingers;
+    private PredecessorCheckThread askPredecessor;
+    private MessagePassingThread mpiThread;
 
     public Node(InetSocketAddress address) {
         localAddress = address;
@@ -47,8 +45,9 @@ public class Node {
         // initialize threads
         listenerThread = new ListenerThread(this);
         stabilizeThread = new StabilizeThread(this);
-        fix_fingers = new UpdateFingersThread(this);
-        ask_predecessor = new PredecessorCheckThread(this);
+        fixFingers = new UpdateFingersThread(this);
+        askPredecessor = new PredecessorCheckThread(this);
+        mpiThread = new MessagePassingThread();
     }
 
     /**
@@ -70,8 +69,9 @@ public class Node {
         // start all threads
         listenerThread.start();
         stabilizeThread.start();
-        fix_fingers.start();
-        ask_predecessor.start();
+        fixFingers.start();
+        askPredecessor.start();
+        mpiThread.start();
 
         return true;
     }
@@ -443,11 +443,11 @@ public class Node {
     public void stopAllThreads() {
         if (listenerThread != null)
             listenerThread.toDie();
-        if (fix_fingers != null)
-            fix_fingers.toDie();
+        if (fixFingers != null)
+            fixFingers.toDie();
         if (stabilizeThread != null)
             stabilizeThread.toDie();
-        if (ask_predecessor != null)
-            ask_predecessor.toDie();
+        if (askPredecessor != null)
+            askPredecessor.toDie();
     }
 }

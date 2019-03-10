@@ -10,7 +10,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-class MessagePassingThread extends Thread {
+public class MessagePassingThread extends Thread {
     private ServerSocket serverSocket;
     private Socket socket;
     private boolean _run = true;
