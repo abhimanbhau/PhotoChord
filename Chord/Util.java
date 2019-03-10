@@ -1,8 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -22,8 +18,8 @@ import java.util.HashMap;
  * (3) Network and address services - send request to a node to get desired
  * socket address/response, create socket address object using string, read
  * string from an input stream.
- * @author Chuan Xia
  *
+ * @author Chuan Xia
  */
 
 public class Util {
@@ -45,30 +41,33 @@ public class Util {
 
     /**
      * Compute a socket address' 32 bit identifier
+     *
      * @param addr: socket address
      * @return 32-bit identifier in long type
      */
-    public static long hashSocketAddress (InetSocketAddress addr) {
+    public static long hashSocketAddress(InetSocketAddress addr) {
         int i = addr.hashCode();
         return hashHashCode(i);
     }
 
     /**
      * Compute a string's 32 bit identifier
+     *
      * @param s: string
      * @return 32-bit identifier in long type
      */
-    public static long hashString (String s) {
+    public static long hashString(String s) {
         int i = s.hashCode();
         return hashHashCode(i);
     }
 
     /**
      * Compute a 32 bit integer's identifier
+     *
      * @param i: integer
      * @return 32-bit identifier in long type
      */
-    private static long hashHashCode (int i) {
+    private static long hashHashCode(int i) {
 
         //32 bit regular hash code -> byte[4]
         byte[] hashbytes = new byte[4];
@@ -78,7 +77,7 @@ public class Util {
         hashbytes[3] = (byte) (i /*>> 0*/);
 
         // try to create SHA1 digest
-        MessageDigest md =  null;
+        MessageDigest md = null;
         try {
             md = MessageDigest.getInstance("SHA-1");
         } catch (NoSuchAlgorithmException e) {
@@ -100,13 +99,13 @@ public class Util {
             for (int j = 0; j < 4; j++) {
                 byte temp = result[j];
                 for (int k = 1; k < 5; k++) {
-                    temp = (byte) (temp ^ result[j+k]);
+                    temp = (byte) (temp ^ result[j + k]);
                 }
                 compressed[j] = temp;
             }
 
-            long ret =  (compressed[0] & 0xFF) << 24 | (compressed[1] & 0xFF) << 16 | (compressed[2] & 0xFF) << 8 | (compressed[3] & 0xFF);
-            ret = ret&(long)0xFFFFFFFFl;
+            long ret = (compressed[0] & 0xFF) << 24 | (compressed[1] & 0xFF) << 16 | (compressed[2] & 0xFF) << 8 | (compressed[3] & 0xFF);
+            ret = ret & (long) 0xFFFFFFFFl;
             return ret;
         }
         return 0;
@@ -115,9 +114,10 @@ public class Util {
     /**
      * Normalization, computer universal id's value relative to local id
      * (regard local node as 0)
+     *
      * @return relative identifier
      */
-    public static long computeRelativeId (long universal, long local) {
+    public static long computeRelativeId(long universal, long local) {
         long ret = universal - local;
         if (ret < 0) {
             ret += powerOfTwo.get(32);
@@ -128,21 +128,21 @@ public class Util {
     /**
      * Compute a socket address' SHA-1 hash in hex
      * and its approximate position in string
+     *
      * @param addr
      * @return
      */
-    public static String hexIdAndPosition (InetSocketAddress addr) {
+    public static String hexIdAndPosition(InetSocketAddress addr) {
         long hash = hashSocketAddress(addr);
-        return (longTo8DigitHex(hash)+" ("+hash*100/Util.getPowerOfTwo(32)+"%)");
+        return (longTo8DigitHex(hash) + " (" + hash * 100 / Util.getPowerOfTwo(32) + "%)");
     }
 
     /**
-     *
      * @return
      */
-    public static String longTo8DigitHex (long l) {
+    public static String longTo8DigitHex(long l) {
         String hex = Long.toHexString(l);
-        int lack = 8-hex.length();
+        int lack = 8 - hex.length();
         StringBuilder sb = new StringBuilder();
         for (int i = lack; i > 0; i--) {
             sb.append("0");
@@ -153,33 +153,36 @@ public class Util {
 
     /**
      * Return a node's finger[i].start, universal
+     *
      * @param i: finger table index
      * @return finger[i].start's identifier
      */
-    public static long ithStart (long nodeid, int i) {
-        return (nodeid + powerOfTwo.get(i-1)) % powerOfTwo.get(32);
+    public static long ithStart(long nodeid, int i) {
+        return (nodeid + powerOfTwo.get(i - 1)) % powerOfTwo.get(32);
     }
 
     /**
      * Get power of 2
+     *
      * @param k
      * @return 2^k
      */
-    public static long getPowerOfTwo (int k) {
+    public static long getPowerOfTwo(int k) {
         return powerOfTwo.get(k);
     }
 
     /**
      * Generate requested address by sending request to server
+     *
      * @param server
-     * @param req: request
+     * @param req:   request
      * @return generated socket address,
      * might be null if
      * (1) invalid input
      * (2) response is null (typically cannot send request)
      * (3) fail to create address from reponse
      */
-    public static InetSocketAddress requestAddress (InetSocketAddress server, String req) {
+    public static InetSocketAddress requestAddress(InetSocketAddress server, String req) {
 
         // invalid input, return null
         if (server == null || req == null) {
@@ -208,6 +211,7 @@ public class Util {
 
     /**
      * Send request to server and read response
+     *
      * @param server
      * @return response, might be null if
      * (1) invalid input
@@ -225,7 +229,7 @@ public class Util {
         // try to open talkSocket, output request to this socket
         // return null if fail to do so
         try {
-            talkSocket = new Socket(server.getAddress(),server.getPort());
+            talkSocket = new Socket(server.getAddress(), server.getPort());
             PrintStream output = new PrintStream(talkSocket.getOutputStream());
             output.println(req);
         } catch (IOException e) {
@@ -245,7 +249,7 @@ public class Util {
         try {
             input = talkSocket.getInputStream();
         } catch (IOException e) {
-            System.out.println("Cannot get input stream from "+server.toString()+"\nRequest is: "+req+"\n");
+            System.out.println("Cannot get input stream from " + server.toString() + "\nRequest is: " + req + "\n");
         }
         String response = Util.inputStreamToString(input);
 
@@ -261,6 +265,7 @@ public class Util {
 
     /**
      * Create InetSocketAddress using ip address and port number
+     *
      * @param addr: socket address string, e.g. 127.0.0.1:8080
      * @return created InetSocketAddress object;
      * return null if:
@@ -268,7 +273,7 @@ public class Util {
      * (2) cannot find split input into ip and port strings
      * (3) fail to parse ip address.
      */
-    public static InetSocketAddress createSocketAddress (String addr) {
+    public static InetSocketAddress createSocketAddress(String addr) {
 
         // input null, return null
         if (addr == null) {
@@ -292,7 +297,7 @@ public class Util {
             try {
                 m_ip = InetAddress.getByName(ip);
             } catch (UnknownHostException e) {
-                System.out.println("Cannot create ip address: "+ip);
+                System.out.println("Cannot create ip address: " + ip);
                 return null;
             }
 
@@ -313,12 +318,13 @@ public class Util {
 
     /**
      * Read one line from input stream
+     *
      * @param in: input steam
      * @return line, might be null if:
      * (1) invalid input
      * (2) cannot read from input stream
      */
-    public static String inputStreamToString (InputStream in) {
+    public static String inputStreamToString(InputStream in) {
 
         // invalid input
         if (in == null) {
@@ -337,7 +343,6 @@ public class Util {
 
         return line;
     }
-
 
 
 }

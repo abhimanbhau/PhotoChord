@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46afe717-614e-4a2a-a2f3-08f74d77de01" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AskPredecessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/AskPredecessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chord.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FixFingers.java" beforeDir="false" afterPath="$PROJECT_DIR$/FixFingers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/Listener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Query.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Stabilize.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stabilize.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Talker.java" beforeDir="false" afterPath="$PROJECT_DIR$/Talker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chord/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chord/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chord/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/Util.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +25,8 @@
       <file leaf-file-name="Chord.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Chord.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="240">
+              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,16 +34,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="130" selection-start-line="130" selection-end-line="130" />
+            <state relative-caret-position="315">
+              <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stabilize.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Stabilize.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Stabilize.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="600">
@@ -59,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/Talker.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="194">
-              <caret line="92" column="26" lean-forward="true" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
+              <caret line="82" column="26" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -68,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/AskPredecessor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-2">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -76,8 +73,8 @@
       <file leaf-file-name="Logger.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Logger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+            <state relative-caret-position="180">
+              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
               <folding>
                 <element signature="e#218#219#0" expanded="true" />
                 <element signature="e#255#256#0" expanded="true" />
@@ -90,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/Util.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="148">
-              <caret line="252" column="13" lean-forward="true" selection-start-line="252" selection-start-column="13" selection-end-line="252" selection-end-column="13" />
+              <caret line="256" column="13" selection-start-line="256" selection-start-column="13" selection-end-line="256" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -116,14 +113,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Logger.java" />
-        <option value="$PROJECT_DIR$/Chord.java" />
-        <option value="$PROJECT_DIR$/Node.java" />
         <option value="$PROJECT_DIR$/FixFingers.java" />
         <option value="$PROJECT_DIR$/Stabilize.java" />
         <option value="$PROJECT_DIR$/Talker.java" />
         <option value="$PROJECT_DIR$/AskPredecessor.java" />
         <option value="$PROJECT_DIR$/Query.java" />
         <option value="$PROJECT_DIR$/Util.java" />
+        <option value="$PROJECT_DIR$/Chord.java" />
+        <option value="$PROJECT_DIR$/Node.java" />
       </list>
     </option>
   </component>
@@ -184,7 +181,7 @@
     <configuration name="Chord" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Chord" />
       <module name="Chord" />
-      <option name="PROGRAM_PARAMETERS" value="join 9000 172.21.102.189:4567" />
+      <option name="PROGRAM_PARAMETERS" value="create 9000" />
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -198,12 +195,12 @@
       <option name="presentableId" value="Default" />
       <updated>1552174734456</updated>
       <workItem from="1552174735656" duration="659000" />
-      <workItem from="1552175514562" duration="1275000" />
+      <workItem from="1552175514562" duration="2554000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1934000" />
+    <option name="totallyTimeSpent" value="3213000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
@@ -271,8 +268,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Logger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        <state relative-caret-position="180">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
           <folding>
             <element signature="e#218#219#0" expanded="true" />
             <element signature="e#255#256#0" expanded="true" />
@@ -297,14 +294,14 @@
     <entry file="file://$PROJECT_DIR$/Talker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
-          <caret line="92" column="26" lean-forward="true" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="26" />
+          <caret line="82" column="26" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AskPredecessor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -321,14 +318,21 @@
     <entry file="file://$PROJECT_DIR$/Util.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
-          <caret line="252" column="13" lean-forward="true" selection-start-line="252" selection-start-column="13" selection-end-line="252" selection-end-column="13" />
+          <caret line="256" column="13" selection-start-line="256" selection-start-column="13" selection-end-line="256" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Stabilize.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="76" selection-start-line="40" selection-start-column="76" selection-end-line="40" selection-end-column="76" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Chord.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        <state relative-caret-position="240">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -337,15 +341,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="130" selection-start-line="130" selection-end-line="130" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Stabilize.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="76" selection-start-line="40" selection-start-column="76" selection-end-line="40" selection-end-column="76" />
+        <state relative-caret-position="315">
+          <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
         </state>
       </provider>
     </entry>
