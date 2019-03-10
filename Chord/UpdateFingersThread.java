@@ -35,7 +35,7 @@ public class UpdateFingersThread extends Thread {
             InetSocketAddress ithfinger = local.find_successor(Util.ithStart(local.getId(), i));
             local.updateFingers(i, ithfinger);
             try {
-                Thread.sleep(500);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
