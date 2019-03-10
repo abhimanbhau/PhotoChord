@@ -103,7 +103,7 @@ public class Chord {
 
             if (userCommand.equalsIgnoreCase("data")) {
                 node.printDataStructure();
-                node.printNeighbors();
+//                node.printNeighbors();
             } else if (userCommand.equalsIgnoreCase("exit")) {
                 Logger.log("");
                 node.stopAllThreads();

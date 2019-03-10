@@ -100,7 +100,7 @@ public class Util {
             }
 
             long ret = (compressed[0] & 0xFF) << 24 | (compressed[1] & 0xFF) << 16 | (compressed[2] & 0xFF) << 8 | (compressed[3] & 0xFF);
-            ret = ret & (long) 0xFFFFFFFFl;
+            ret = ret & (long) 0xFFFFFFFFL;
             return ret;
         }
         return 0;
@@ -120,28 +120,28 @@ public class Util {
         return ret;
     }
 
-    /**
-     * Compute a socket address' SHA-1 hash in hex
-     * and its approximate position in string
-     */
-    public static String hexIdAndPosition(InetSocketAddress address) {
-        long hash = hashSocketAddress(address);
-        return (longTo8DigitHex(hash) + " (" + hash * 100 / Util.getPowerOfTwo(32) + "%)");
-    }
-
-    /**
-     * @return
-     */
-    public static String longTo8DigitHex(long l) {
-        String hex = Long.toHexString(l);
-        int lack = 8 - hex.length();
-        StringBuilder sb = new StringBuilder();
-        for (int i = lack; i > 0; i--) {
-            sb.append("0");
-        }
-        sb.append(hex);
-        return sb.toString();
-    }
+//    /**
+//     * Compute a socket address' SHA-1 hash in hex
+//     * and its approximate position in string
+//     */
+//    public static String hexIdAndPosition(InetSocketAddress address) {
+//        long hash = hashSocketAddress(address);
+//        return (longTo8DigitHex(hash) + " (" + hash * 100 / Util.getPowerOfTwo(32) + "%)");
+//    }
+//
+//    /**
+//     * @return
+//     */
+//    public static String longTo8DigitHex(long l) {
+//        String hex = Long.toHexString(l);
+//        int lack = 8 - hex.length();
+//        StringBuilder sb = new StringBuilder();
+//        for (int i = lack; i > 0; i--) {
+//            sb.append("0");
+//        }
+//        sb.append(hex);
+//        return sb.toString();
+//    }
 
     /**
      * Return a node's finger[i].start, universal

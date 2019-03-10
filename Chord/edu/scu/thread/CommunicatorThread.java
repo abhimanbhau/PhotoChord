@@ -56,7 +56,7 @@ public class CommunicatorThread implements Runnable {
         }
         if (request.startsWith("CLOSEST")) {
             long id = Long.parseLong(request.split("_")[1]);
-            result = local.closest_preceding_finger(id);
+            result = local.findClosestPrecedingFinger(id);
             String ip = result.getAddress().toString();
             int port = result.getPort();
             ret = "MYCLOSEST_" + ip + ":" + port;
@@ -80,7 +80,7 @@ public class CommunicatorThread implements Runnable {
             }
         } else if (request.startsWith("FINDSUCC")) {
             long id = Long.parseLong(request.split("_")[1]);
-            result = local.find_successor(id);
+            result = local.findSuccessor(id);
             String ip = result.getAddress().toString();
             int port = result.getPort();
             ret = "FOUNDSUCC_" + ip + ":" + port;

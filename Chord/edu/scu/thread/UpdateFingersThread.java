@@ -37,7 +37,7 @@ public class UpdateFingersThread extends Thread {
             	i = random.nextInt(31) + 2;
 			}
             lastFinger = i;
-            InetSocketAddress ithfinger = local.find_successor(Util.ithStart(local.getId(), i));
+            InetSocketAddress ithfinger = local.findSuccessor(Util.ithStart(local.getId(), i));
             local.updateFingers(i, ithfinger);
             try {
                 Thread.sleep(100);

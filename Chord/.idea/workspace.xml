@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46afe717-614e-4a2a-a2f3-08f74d77de01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/edu/scu/util/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chord.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/Chord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommunicatorThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/CommunicatorThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Constants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ListenerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/ListenerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/util/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredecessorCheckThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/PredecessorCheckThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/StabilizeThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/StabilizeThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UpdateFingersThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/UpdateFingersThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/util/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu/scu/Chord.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/Chord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu/scu/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu/scu/thread/CommunicatorThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/CommunicatorThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu/scu/thread/UpdateFingersThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/UpdateFingersThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu/scu/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/util/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chord/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chord/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Chord/README.md" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,11 +25,57 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CommunicatorThread.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/edu/scu/thread/CommunicatorThread.java">
+      <file leaf-file-name="Chord.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edu/scu/Chord.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="45" column="86" selection-start-line="45" selection-start-column="86" selection-end-line="45" selection-end-column="86" />
+            <state relative-caret-position="119">
+              <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Util.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edu/scu/util/Util.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="206" column="73" selection-start-line="206" selection-start-column="70" selection-end-line="206" selection-end-column="73" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/edu/scu/Node.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-791">
+              <caret line="380" selection-start-line="380" selection-end-line="380" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#13007#13008#0" expanded="true" />
+                <element signature="e#13043#13044#0" expanded="true" />
+                <element signature="e#13070#13071#0" expanded="true" />
+                <element signature="e#13100#13101#0" expanded="true" />
+                <element signature="e#13145#13146#0" expanded="true" />
+                <element signature="e#13180#13181#0" expanded="true" />
+                <element signature="e#13229#13230#0" expanded="true" />
+                <element signature="e#13263#13264#0" expanded="true" />
+                <element signature="e#13417#13418#0" expanded="true" />
+                <element signature="e#13450#13451#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StabilizeThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edu/scu/thread/StabilizeThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="57" selection-start-line="57" selection-end-line="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,14 +132,14 @@
         <option value="$PROJECT_DIR$/CommunicatorThread.java" />
         <option value="$PROJECT_DIR$/Constants.java" />
         <option value="$PROJECT_DIR$/edu/scu/util/Constants.java" />
-        <option value="$PROJECT_DIR$/edu/scu/Node.java" />
         <option value="$PROJECT_DIR$/edu/scu/thread/PredecessorCheckThread.java" />
         <option value="$PROJECT_DIR$/edu/scu/thread/ListenerThread.java" />
         <option value="$PROJECT_DIR$/edu/scu/thread/StabilizeThread.java" />
         <option value="$PROJECT_DIR$/edu/scu/thread/UpdateFingersThread.java" />
-        <option value="$PROJECT_DIR$/edu/scu/Chord.java" />
-        <option value="$PROJECT_DIR$/edu/scu/util/Util.java" />
         <option value="$PROJECT_DIR$/edu/scu/thread/CommunicatorThread.java" />
+        <option value="$PROJECT_DIR$/edu/scu/util/Util.java" />
+        <option value="$PROJECT_DIR$/edu/scu/Chord.java" />
+        <option value="$PROJECT_DIR$/edu/scu/Node.java" />
       </list>
     </option>
   </component>
@@ -136,12 +177,6 @@
               <item name="Chord" type="b2602c69:ProjectViewProjectNode" />
               <item name="Chord" type="462c0819:PsiDirectoryNode" />
               <item name="scu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Chord" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Chord" type="462c0819:PsiDirectoryNode" />
-              <item name="scu" type="462c0819:PsiDirectoryNode" />
-              <item name="thread" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Chord" type="b2602c69:ProjectViewProjectNode" />
@@ -191,12 +226,12 @@
       <updated>1552174734456</updated>
       <workItem from="1552174735656" duration="659000" />
       <workItem from="1552175514562" duration="2554000" />
-      <workItem from="1552245338214" duration="1062000" />
+      <workItem from="1552245338214" duration="3000000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13230000" />
+    <option name="totallyTimeSpent" value="15168000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
@@ -204,6 +239,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32894737" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="5" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
@@ -215,7 +251,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2609047" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2609047" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -224,7 +260,6 @@
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32894737" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -284,55 +319,7 @@
     <entry file="file://$PROJECT_DIR$/Chord.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/edu/scu/Chord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="14" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu/scu/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu/scu/util/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="8" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu/scu/util/Logger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu/scu/util/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edu/scu/thread/UpdateFingersThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="8" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/edu/scu/thread/StabilizeThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="15" selection-start-column="8" selection-end-column="15" />
@@ -362,6 +349,77 @@
           <caret line="45" column="86" selection-start-line="45" selection-start-column="86" selection-end-line="45" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu/scu/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu/scu/util/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_45.jdk/Contents/Home/src.zip!/java/net/InetSocketAddress.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="403" column="25" selection-start-line="403" selection-start-column="25" selection-end-line="403" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu/scu/util/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="206" column="73" selection-start-line="206" selection-start-column="70" selection-end-line="206" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu/scu/thread/StabilizeThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu/scu/Chord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu/scu/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-791">
+          <caret line="380" selection-start-line="380" selection-end-line="380" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#13007#13008#0" expanded="true" />
+            <element signature="e#13043#13044#0" expanded="true" />
+            <element signature="e#13070#13071#0" expanded="true" />
+            <element signature="e#13100#13101#0" expanded="true" />
+            <element signature="e#13145#13146#0" expanded="true" />
+            <element signature="e#13180#13181#0" expanded="true" />
+            <element signature="e#13229#13230#0" expanded="true" />
+            <element signature="e#13263#13264#0" expanded="true" />
+            <element signature="e#13417#13418#0" expanded="true" />
+            <element signature="e#13450#13451#0" expanded="true" />
           </folding>
         </state>
       </provider>
