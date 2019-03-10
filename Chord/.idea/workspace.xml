@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="46afe717-614e-4a2a-a2f3-08f74d77de01" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AskPredecessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredecessorCheckThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chord.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FixFingers.java" beforeDir="false" afterPath="$PROJECT_DIR$/UpdateFingersThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Listener.java" beforeDir="false" afterPath="$PROJECT_DIR$/ListenerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stabilize.java" beforeDir="false" afterPath="$PROJECT_DIR$/StabilizeThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Talker.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommunicatorThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/Util.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,11 +15,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ListenerThread.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ListenerThread.java">
+      <file leaf-file-name="Chord.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Chord.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+            <state relative-caret-position="187">
+              <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,13 +66,13 @@
         <option value="$PROJECT_DIR$/PredecessorCheckThread.java" />
         <option value="$PROJECT_DIR$/Talker.java" />
         <option value="$PROJECT_DIR$/StabilizeThread.java" />
-        <option value="$PROJECT_DIR$/Chord.java" />
         <option value="$PROJECT_DIR$/CommunicatorThread.java" />
         <option value="$PROJECT_DIR$/Logger.java" />
         <option value="$PROJECT_DIR$/Node.java" />
         <option value="$PROJECT_DIR$/Util.java" />
         <option value="$PROJECT_DIR$/Listener.java" />
         <option value="$PROJECT_DIR$/ListenerThread.java" />
+        <option value="$PROJECT_DIR$/Chord.java" />
       </list>
     </option>
   </component>
@@ -157,7 +152,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4952000" />
+    <option name="totallyTimeSpent" value="5434000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
@@ -172,12 +167,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32894737" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32894737" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2536349" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2536349" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -398,20 +393,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Chord.java">
+    <entry file="file://$PROJECT_DIR$/ListenerThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="213">
+          <caret line="36" column="23" lean-forward="true" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ListenerThread.java">
+    <entry file="file://$PROJECT_DIR$/Chord.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+        <state relative-caret-position="187">
+          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
