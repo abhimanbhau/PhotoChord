@@ -8,4 +8,6 @@ public class Constants {
         put("Nature", 4);
         put("Car", 5);
     }};
+
+    public static final int _mpiPort = 5678;
 }
