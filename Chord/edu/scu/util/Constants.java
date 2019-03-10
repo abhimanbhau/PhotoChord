@@ -19,5 +19,6 @@ public class Constants {
         put("Car", 5);
     }};
 
+    public static final int _mpiPort = 5678;
 
 }

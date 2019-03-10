@@ -1,3 +1,7 @@
+package edu.scu.thread;
+
+import edu.scu.util.Constants;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -40,5 +44,11 @@ public class MessagePassingThread extends Thread{
 
     public void finish() {
         _run = false;
+        try {
+            socket.close();
+            serverSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
