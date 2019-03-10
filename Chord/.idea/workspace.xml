@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46afe717-614e-4a2a-a2f3-08f74d77de01" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu/scu/Chord.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/Chord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu/scu/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu/scu/thread/CommunicatorThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/CommunicatorThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edu/scu/thread/UpdateFingersThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/UpdateFingersThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edu/scu/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/util/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chord/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chord/README.md" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +20,7 @@
       <file leaf-file-name="Chord.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/edu/scu/Chord.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="1423">
               <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -37,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Util.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Util.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/edu/scu/util/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="206" column="73" selection-start-line="206" selection-start-column="70" selection-end-line="206" selection-end-column="73" />
+            <state relative-caret-position="1958">
+              <caret line="142" column="30" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Node.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/edu/scu/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-791">
-              <caret line="380" selection-start-line="380" selection-end-line="380" />
+            <state relative-caret-position="507">
+              <caret line="461" column="5" lean-forward="true" selection-start-line="461" selection-start-column="5" selection-end-line="461" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#13007#13008#0" expanded="true" />
@@ -137,9 +129,9 @@
         <option value="$PROJECT_DIR$/edu/scu/thread/StabilizeThread.java" />
         <option value="$PROJECT_DIR$/edu/scu/thread/UpdateFingersThread.java" />
         <option value="$PROJECT_DIR$/edu/scu/thread/CommunicatorThread.java" />
-        <option value="$PROJECT_DIR$/edu/scu/util/Util.java" />
         <option value="$PROJECT_DIR$/edu/scu/Chord.java" />
         <option value="$PROJECT_DIR$/edu/scu/Node.java" />
+        <option value="$PROJECT_DIR$/edu/scu/util/Util.java" />
       </list>
     </option>
   </component>
@@ -226,12 +218,12 @@
       <updated>1552174734456</updated>
       <workItem from="1552174735656" duration="659000" />
       <workItem from="1552175514562" duration="2554000" />
-      <workItem from="1552245338214" duration="3000000" />
+      <workItem from="1552245338214" duration="3948000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15168000" />
+    <option name="totallyTimeSpent" value="16116000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
@@ -374,16 +366,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edu/scu/util/Util.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="206" column="73" selection-start-line="206" selection-start-column="70" selection-end-line="206" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edu/scu/thread/StabilizeThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -394,20 +376,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edu/scu/Chord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edu/scu/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-791">
-          <caret line="380" selection-start-line="380" selection-end-line="380" />
+        <state relative-caret-position="507">
+          <caret line="461" column="5" lean-forward="true" selection-start-line="461" selection-start-column="5" selection-end-line="461" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#13007#13008#0" expanded="true" />
@@ -420,6 +392,26 @@
             <element signature="e#13263#13264#0" expanded="true" />
             <element signature="e#13417#13418#0" expanded="true" />
             <element signature="e#13450#13451#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu/scu/Chord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1423">
+          <caret line="105" column="20" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu/scu/util/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1958">
+          <caret line="142" column="30" selection-start-line="142" selection-start-column="30" selection-end-line="142" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
