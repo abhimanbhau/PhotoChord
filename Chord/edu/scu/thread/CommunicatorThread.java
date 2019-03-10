@@ -19,9 +19,9 @@ import java.net.Socket;
  * @author Dhruv Mevada
  */
 
-public class CommunicatorThread implements Runnable {
+class CommunicatorThread implements Runnable {
 
-    Socket talkSocket;
+    private Socket talkSocket;
     private Node local;
 
     public CommunicatorThread(Socket socket, Node local) {

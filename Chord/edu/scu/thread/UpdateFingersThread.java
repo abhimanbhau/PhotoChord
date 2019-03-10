@@ -18,9 +18,9 @@ import java.util.Random;
 
 public class UpdateFingersThread extends Thread {
 
-    Random random;
-    boolean alive;
-    int lastFinger = 0;
+    private Random random;
+    private boolean alive;
+    private int lastFinger = 0;
     private Node local;
 
     public UpdateFingersThread(Node node) {

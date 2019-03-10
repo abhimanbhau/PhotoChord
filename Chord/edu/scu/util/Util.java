@@ -24,7 +24,7 @@ public class Util {
     private static HashMap<Integer, Long> powerOfTwo = null;
 
     public Util() {
-        powerOfTwo = new HashMap<Integer, Long>();
+        powerOfTwo = new HashMap<>();
         long base = 1;
         for (int i = 0; i <= 32; i++) {
             powerOfTwo.put(i, base);

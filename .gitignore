@@ -24,3 +24,5 @@ hs_err_pid*
 
 Chord/.idea/*.xml
 Chord/.idea/workspace.xml
+Chord/out/production/Chord/.idea/workspace.xml
+Chord/.idea/workspace.xml

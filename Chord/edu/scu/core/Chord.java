@@ -17,8 +17,6 @@ import java.util.Scanner;
  * Driver class for Chord application.
  */
 public class Chord {
-    private static String port = "";
-    private static String ipAddressPort = "";
     private static Node node;
     private static InetSocketAddress contactNode;
     private Util util = new Util();
@@ -51,17 +49,14 @@ public class Chord {
         }
     }
 
-    public static void main(String[] args) throws UnknownHostException {
+    public static void main(String[] args) {
         Chord chord = new Chord();
         int value = chord.parseArguments(args);
 
-        if (value == 1) {
-            //todo
-            //list chord ring
-        }
+        String port = "";
 
         //create chord ring
-        else if (value == 2) {
+        if (value == 2) {
             port = args[1];
             String ipPort = getOwnIp() + ":" + port;
 
@@ -72,7 +67,7 @@ public class Chord {
         //join existing chord ring
         else if (value == 3) {
             port = args[1];
-            ipAddressPort = args[2];
+            String ipAddressPort = args[2];
 
             node = new Node(Util.createSocketAddress(getOwnIp() + ":" + port));
             contactNode = Util.createSocketAddress(ipAddressPort);

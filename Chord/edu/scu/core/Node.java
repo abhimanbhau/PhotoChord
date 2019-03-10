@@ -37,7 +37,7 @@ public class Node {
         localId = Util.hashSocketAddress(localAddress);
 
         // initialize an empty finger table
-        finger = new HashMap<Integer, InetSocketAddress>();
+        finger = new HashMap<>();
         for (int i = 1; i <= 32; i++) {
             updateIthFinger(i, null);
         }
@@ -296,7 +296,7 @@ public class Node {
         // if successor is still null or local node,
         // and the predecessor is another node, keep asking
         // it's predecessor until local node's new successor has been found
-        if ((successor == null || successor.equals(successor)) && predecessor != null && !predecessor.equals(localAddress)) {
+        if (predecessor != null && !predecessor.equals(localAddress)) {
             InetSocketAddress p = predecessor;
             InetSocketAddress previousPredecessor = null;
             while (true) {
@@ -425,10 +425,10 @@ public class Node {
             long ithstart = Util.ithStart(Util.hashSocketAddress(localAddress), i);
             InetSocketAddress fingerId = finger.get(i);
             StringBuilder sb = new StringBuilder();
-            sb.append(i + "\t");
+            sb.append(i).append("\t");
 
             if (fingerId != null)
-                sb.append(fingerId.toString() + "\t" + Util.hashSocketAddress(fingerId));
+                sb.append(fingerId.toString()).append("\t").append(Util.hashSocketAddress(fingerId));
 
             else
                 sb.append("null");
