@@ -459,32 +459,32 @@ public class Node {
 
     public void printDataStructure() {
         Logger.log("\n--------------------------------------------------------------");
-        Logger.log("\nLOCAL:\t\t\t\t" + localAddress.toString() + "\t" + Util.hexIdAndPosition(localAddress));
+        Logger.log("\nLocal: " + localAddress.toString());
 
         if (predecessor != null)
         {
-            Logger.log("\nPREDECESSOR:\t\t\t" + predecessor.toString() + "\t" + Util.hexIdAndPosition(predecessor));
+            Logger.log("\nPredecessor: " + predecessor.toString());
         }
 
         else
         {
-            Logger.log("\nPREDECESSOR:\t\t\tNULL");
+            Logger.log("\nPredecessor: null");
         }
         
-        Logger.log("\nFINGER TABLE:\n");
-        for (int i = 1; i <= 32; i++) {
+        Logger.log("\nFinger table: \n");
+        for (int i = 1; i <= 5; i++) {
             long ithstart = Util.ithStart(Util.hashSocketAddress(localAddress), i);
-            InetSocketAddress f = finger.get(i);
+            InetSocketAddress fingerId = finger.get(i);
             StringBuilder sb = new StringBuilder();
-            sb.append(i + "\t" + Util.longTo8DigitHex(ithstart) + "\t\t");
-            if (f != null)
-                sb.append(f.toString() + "\t" + Util.hexIdAndPosition(f));
+            sb.append(i + "\t");
+            if (fingerId != null)
+                sb.append(fingerId.toString() + "\t" + Util.hashSocketAddress(fingerId));
 
             else
-                sb.append("NULL");
+                sb.append("null");
             Logger.log(sb.toString());
         }
-        Logger.log("\n==============================================================\n");
+        Logger.log("\n--------------------------------------------------------------\n");
     }
 
     /**

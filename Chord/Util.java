@@ -43,7 +43,11 @@ public class Util {
      * Compute a socket address' 32 bit identifier
      */
     public static long hashSocketAddress(InetSocketAddress address) {
-        return hashHashCode(address.hashCode());
+//        return hashHashCode(address.hashCode());
+//        Logger.log(address.getHostString());
+        String lastTriplet = address.getHostString().substring(address.getHostString().lastIndexOf(".")+1);
+//        Logger.log(lastTriplet);
+        return Integer.parseInt(lastTriplet) % 32;
     }
 
     /**
@@ -70,7 +74,7 @@ public class Util {
         try {
             md = MessageDigest.getInstance("SHA-1");
         } catch (NoSuchAlgorithmException e) {
-            // TODO Auto-generated catch block
+            Logger.log("SHA-1 not found");
             e.printStackTrace();
         }
 
@@ -101,7 +105,7 @@ public class Util {
     }
 
     /**
-     * Normalization, computer universal id's value relative to local id
+     * Normalization, compute universal id's value relative to local id
      * (regard local node as 0)
      *
      * @return relative identifier
@@ -117,9 +121,6 @@ public class Util {
     /**
      * Compute a socket address' SHA-1 hash in hex
      * and its approximate position in string
-     *
-     * @param address
-     * @return
      */
     public static String hexIdAndPosition(InetSocketAddress address) {
         long hash = hashSocketAddress(address);
@@ -142,19 +143,13 @@ public class Util {
 
     /**
      * Return a node's finger[i].start, universal
-     *
-     * @param i: finger table index
-     * @return finger[i].start's identifier
      */
-    public static long ithStart(long nodeid, int i) {
-        return (nodeid + powerOfTwo.get(i - 1)) % powerOfTwo.get(32);
+    public static long ithStart(long nodeId, int i) {
+        return (nodeId + powerOfTwo.get(i - 1)) % powerOfTwo.get(32);
     }
 
     /**
      * Get power of 2
-     *
-     * @param k
-     * @return 2^k
      */
     public static long getPowerOfTwo(int k) {
         return powerOfTwo.get(k);
