@@ -1,4 +1,9 @@
+package edu.scu.thread;
+
 import java.net.InetSocketAddress;
+
+import edu.scu.Node;
+import edu.scu.util.Util;
 
 /**
  * StabilizeThread thread that periodically asks successor for its predecessor
@@ -33,17 +38,17 @@ public class StabilizeThread extends Thread {
                 // try to get my successor's predecessor
                 InetSocketAddress x = Util.requestAddress(successor, "YOURPRE");
 
-                // if bad connection with successor! delete successor
+                // if bad connection with successor, delete successor
                 if (x == null) {
                     local.updateFingers(-1, null);
                 }
 
                 // else if successor's predecessor is not itself
                 else if (!x.equals(successor)) {
-                    long local_id = Util.hashSocketAddress(local.getAddress());
-                    long successor_relative_id = Util.computeRelativeId(Util.hashSocketAddress(successor), local_id);
-                    long x_relative_id = Util.computeRelativeId(Util.hashSocketAddress(x), local_id);
-                    if (x_relative_id > 0 && x_relative_id < successor_relative_id) {
+                    long localId = Util.hashSocketAddress(local.getAddress());
+                    long successorRelativeId = Util.computeRelativeId(Util.hashSocketAddress(successor), localId);
+                    long xRelativeId = Util.computeRelativeId(Util.hashSocketAddress(x), localId);
+                    if (xRelativeId > 0 && xRelativeId < successorRelativeId) {
                         local.updateFingers(1, x);
                     }
                 }
@@ -66,6 +71,4 @@ public class StabilizeThread extends Thread {
     public void toDie() {
         alive = false;
     }
-
-
 }

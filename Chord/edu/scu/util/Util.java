@@ -1,3 +1,5 @@
+package edu.scu.util;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -8,16 +10,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 
 /**
- * A Util class which provides  method that does the following things:
- * (1) Hashing - for string, for socket address, and integer number
- * (2) Computation - relative id (one node is how far behind another node),
- * a address' hex string and its percentage position in the ring (so we can
- * easily draw the picture of ring!), address' 8-digit hex string, the ith
- * start of a node's finger table, power of two (to avoid computation of power
- * of 2 everytime we need it)
- * (3) Network and address services - send request to a node to get desired
- * socket address/response, create socket address object using string, read
- * string from an input stream.
+ * A Util class which provide methods for hashing, sending requests,
+ * and more.
  *
  *  @author Raghav Bhandari
  *  @author Krishna Kandhani
@@ -80,9 +74,6 @@ public class Util {
 
         // successfully created SHA1 digest
         // try to convert byte[4]
-        // -> SHA1 result byte[]
-        // -> compressed result byte[4]
-        // -> compressed result in long type
         if (md != null) {
             md.reset();
             md.update(hashBytes);
@@ -98,17 +89,15 @@ public class Util {
             }
 
             long ret = (compressed[0] & 0xFF) << 24 | (compressed[1] & 0xFF) << 16 | (compressed[2] & 0xFF) << 8 | (compressed[3] & 0xFF);
-            ret = ret & (long) 0xFFFFFFFFl;
+            ret = ret & (long) 0xFFFFFFFFL;
             return ret;
         }
         return 0;
     }
 
     /**
-     * Normalization, compute universal id's value relative to local id
-     * (regard local node as 0)
-     *
-     * @return relative identifier
+     * Normalization, compute universal id's value relative to local id,
+     * considering local node with an id of 0.
      */
     public static long computeRelativeId(long universal, long local) {
         long ret = universal - local;
@@ -118,28 +107,28 @@ public class Util {
         return ret;
     }
 
-    /**
-     * Compute a socket address' SHA-1 hash in hex
-     * and its approximate position in string
-     */
-    public static String hexIdAndPosition(InetSocketAddress address) {
-        long hash = hashSocketAddress(address);
-        return (longTo8DigitHex(hash) + " (" + hash * 100 / Util.getPowerOfTwo(32) + "%)");
-    }
-
-    /**
-     * @return
-     */
-    public static String longTo8DigitHex(long l) {
-        String hex = Long.toHexString(l);
-        int lack = 8 - hex.length();
-        StringBuilder sb = new StringBuilder();
-        for (int i = lack; i > 0; i--) {
-            sb.append("0");
-        }
-        sb.append(hex);
-        return sb.toString();
-    }
+//    /**
+//     * Compute a socket address' SHA-1 hash in hex
+//     * and its approximate position in string
+//     */
+//    public static String hexIdAndPosition(InetSocketAddress address) {
+//        long hash = hashSocketAddress(address);
+//        return (longTo8DigitHex(hash) + " (" + hash * 100 / Util.getPowerOfTwo(32) + "%)");
+//    }
+//
+//    /**
+//     * @return
+//     */
+//    public static String longTo8DigitHex(long l) {
+//        String hex = Long.toHexString(l);
+//        int lack = 8 - hex.length();
+//        StringBuilder sb = new StringBuilder();
+//        for (int i = lack; i > 0; i--) {
+//            sb.append("0");
+//        }
+//        sb.append(hex);
+//        return sb.toString();
+//    }
 
     /**
      * Return a node's finger[i].start, universal
@@ -157,14 +146,6 @@ public class Util {
 
     /**
      * Generate requested address by sending request to server
-     *
-     * @param server
-     * @param req:   request
-     * @return generated socket address,
-     * might be null if
-     * (1) invalid input
-     * (2) response is null (typically cannot send request)
-     * (3) fail to create address from reponse
      */
     public static InetSocketAddress requestAddress(InetSocketAddress server, String req) {
 
@@ -176,42 +157,30 @@ public class Util {
         // send request to server
         String response = sendRequest(server, req);
 
-        // if response is null, return null
         if (response == null) {
             return null;
         }
 
-        // or server cannot find anything, return server itself
         else if (response.startsWith("NOTHING"))
             return server;
 
-            // server find something,
-            // using response to create, might fail then and return null
+        // server found something, use response to create
         else {
-            InetSocketAddress ret = Util.createSocketAddress(response.split("_")[1]);
-            return ret;
+            return Util.createSocketAddress(response.split("_")[1]);
         }
     }
 
     /**
-     * Send request to server and read response
-     *
-     * @param server
-     * @return response, might be null if
-     * (1) invalid input
-     * (2) cannot open socket or write request to it
-     * (3) response read by inputStreamToString() is null
+     * Sends request to server and reads response.
      */
     public static String sendRequest(InetSocketAddress server, String req) {
 
-        // invalid input
         if (server == null || req == null)
             return null;
 
         Socket talkSocket = null;
 
         // try to open talkSocket, output request to this socket
-        // return null if fail to do so
         try {
             talkSocket = new Socket(server.getAddress(), server.getPort());
             PrintStream output = new PrintStream(talkSocket.getOutputStream());
@@ -221,7 +190,6 @@ public class Util {
             return null;
         }
 
-        // sleep for a short time, waiting for response
         try {
             Thread.sleep(60);
         } catch (InterruptedException e) {
@@ -235,82 +203,66 @@ public class Util {
         } catch (IOException e) {
             Logger.log("Cannot get input stream from " + server.toString() + "\nRequest is: " + req + "\n");
         }
+
         String response = Util.inputStreamToString(input);
 
-        // try to close socket
         try {
             talkSocket.close();
         } catch (IOException e) {
             throw new RuntimeException(
                     "Cannot close socket", e);
         }
+
         return response;
     }
 
     /**
      * Create InetSocketAddress using ip address and port number
-     *
-     * @param addr: socket address string, e.g. 127.0.0.1:8080
-     * @return created InetSocketAddress object;
-     * return null if:
-     * (1) not valid input
-     * (2) cannot find split input into ip and port strings
-     * (3) fail to parse ip address.
      */
     public static InetSocketAddress createSocketAddress(String addr) {
 
-        // input null, return null
         if (addr == null) {
             return null;
         }
 
         // split input into ip string and port string
-        String[] splitted = addr.split(":");
+        String[] parts = addr.split(":");
 
-        // can split string
-        if (splitted.length >= 2) {
+        // two parts to the split string
+        if (parts.length >= 2) {
 
-            //get and pre-process ip address string
-            String ip = splitted[0];
+            String ip = parts[0];
             if (ip.startsWith("/")) {
                 ip = ip.substring(1);
             }
 
-            //parse ip address, if fail, return null
-            InetAddress m_ip = null;
+            //parse ip address
+            InetAddress mIp = null;
             try {
-                m_ip = InetAddress.getByName(ip);
+                mIp = InetAddress.getByName(ip);
             } catch (UnknownHostException e) {
                 Logger.log("Cannot create ip address: " + ip);
                 return null;
             }
 
             // parse port number
-            String port = splitted[1];
-            int m_port = Integer.parseInt(port);
+            int port = Integer.parseInt(parts[1]);
 
-            // combine ip addr and port in socket address
-            return new InetSocketAddress(m_ip, m_port);
+            // combine ip address and port in socket address
+            return new InetSocketAddress(mIp, port);
         }
 
         // cannot split string
         else {
             return null;
         }
-
     }
 
     /**
-     * Read one line from input stream
-     *
-     * @param in: input steam
-     * @return line, might be null if:
-     * (1) invalid input
-     * (2) cannot read from input stream
+     * Read one line from input stream.
      */
     public static String inputStreamToString(InputStream in) {
 
-        // invalid input
         if (in == null) {
             return null;
         }
@@ -327,6 +279,4 @@ public class Util {
 
         return line;
     }
-
-
 }

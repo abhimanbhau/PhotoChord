@@ -1,6 +1,8 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+package edu.scu;
+
+import edu.scu.util.Logger;
+import edu.scu.util.Util;
+
 import java.net.*;
 import java.util.Scanner;
 
@@ -10,7 +12,7 @@ import java.util.Scanner;
  * @author Abhiman Kolte
  * @author Dhruv Mevada
  *
- * Driver class for chord.
+ * Driver class for Chord application.
  */
 public class Chord {
     private static String port = "";
@@ -101,7 +103,7 @@ public class Chord {
 
             if (userCommand.equalsIgnoreCase("data")) {
                 node.printDataStructure();
-                node.printNeighbors();
+//                node.printNeighbors();
             } else if (userCommand.equalsIgnoreCase("exit")) {
                 Logger.log("");
                 node.stopAllThreads();

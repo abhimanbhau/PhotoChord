@@ -1,3 +1,5 @@
+package edu.scu.util;
+
 /**
  * @author Raghav Bhandari
  * @author Krishna Kandhani

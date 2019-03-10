@@ -1,9 +1,14 @@
+package edu.scu.thread;
+
 import java.net.InetSocketAddress;
 import java.util.Random;
 
+import edu.scu.Node;
+import edu.scu.util.Util;
+
 /**
- * UpdateFingers thread that periodically access a random entry in finger table
- * and fix it.
+ * UpdateFingers thread that periodically accesses a random entry in finger table
+ * and fixes it.
  *
  * @author Raghav Bhandari
  * @author Krishna Kandhani
@@ -32,7 +37,7 @@ public class UpdateFingersThread extends Thread {
             	i = random.nextInt(31) + 2;
 			}
             lastFinger = i;
-            InetSocketAddress ithfinger = local.find_successor(Util.ithStart(local.getId(), i));
+            InetSocketAddress ithfinger = local.findSuccessor(Util.ithStart(local.getId(), i));
             local.updateFingers(i, ithfinger);
             try {
                 Thread.sleep(100);
@@ -45,5 +50,4 @@ public class UpdateFingersThread extends Thread {
     public void toDie() {
         alive = false;
     }
-
 }
