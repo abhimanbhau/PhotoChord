@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 
-import edu.scu.Node;
+import edu.scu.core.Node;
 import edu.scu.util.Util;
 
 /**

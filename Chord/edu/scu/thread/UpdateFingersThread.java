@@ -3,7 +3,7 @@ package edu.scu.thread;
 import java.net.InetSocketAddress;
 import java.util.Random;
 
-import edu.scu.Node;
+import edu.scu.core.Node;
 import edu.scu.util.Util;
 
 /**

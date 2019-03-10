@@ -1,4 +1,4 @@
-package edu.scu;
+package edu.scu.core;
 
 import edu.scu.util.Logger;
 import edu.scu.util.Util;
