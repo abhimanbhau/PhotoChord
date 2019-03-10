@@ -95,8 +95,8 @@ public class CommunicatorThread implements Runnable {
         }
 
         else if (request.startsWith("IAMPRE")) {
-            InetSocketAddress new_pre = Util.createSocketAddress(request.split("_")[1]);
-            local.notified(new_pre);
+            InetSocketAddress newPredecessor = Util.createSocketAddress(request.split("_")[1]);
+            local.notified(newPredecessor);
             ret = "NOTIFIED";
         }
 
