@@ -38,7 +38,8 @@ public class CommunicatorThread implements Runnable {
             input.close();
         } catch (IOException e) {
             throw new RuntimeException(
-                    "Cannot talk.\nServer port: " + local.getAddress().getPort() + "; CommunicatorThread port: " + talkSocket.getPort(), e);
+                    "Cannot talk.\nServer port: " + local.getAddress().getPort() + "; CommunicatorThread port: " +
+                            talkSocket.getPort(), e);
         }
     }
 
@@ -85,6 +86,7 @@ public class CommunicatorThread implements Runnable {
         } else if (request.startsWith("KEEP")) {
             ret = "ALIVE";
         }
+
         return ret;
     }
 }
