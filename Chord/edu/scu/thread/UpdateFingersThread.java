@@ -1,10 +1,10 @@
 package edu.scu.thread;
 
-import java.net.InetSocketAddress;
-import java.util.Random;
-
 import edu.scu.core.Node;
 import edu.scu.util.Util;
+
+import java.net.InetSocketAddress;
+import java.util.Random;
 
 /**
  * UpdateFingers thread that periodically accesses a random entry in finger table
@@ -20,8 +20,8 @@ public class UpdateFingersThread extends Thread {
 
     Random random;
     boolean alive;
-    private Node local;
     int lastFinger = 0;
+    private Node local;
 
     public UpdateFingersThread(Node node) {
         local = node;
@@ -33,9 +33,9 @@ public class UpdateFingersThread extends Thread {
     public void run() {
         while (alive) {
             int i = random.nextInt(31) + 2;
-            while(i == lastFinger) {
-            	i = random.nextInt(31) + 2;
-			}
+            while (i == lastFinger) {
+                i = random.nextInt(31) + 2;
+            }
             lastFinger = i;
             InetSocketAddress ithfinger = local.findSuccessor(Util.ithStart(local.getId(), i));
             local.updateFingers(i, ithfinger);

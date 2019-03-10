@@ -1,13 +1,13 @@
 package edu.scu.thread;
 
+import edu.scu.core.Node;
+import edu.scu.util.Util;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-
-import edu.scu.core.Node;
-import edu.scu.util.Util;
 
 /**
  * CommunicatorThread thread that processes request accepted by listener and writes
@@ -62,9 +62,7 @@ public class CommunicatorThread implements Runnable {
             String ip = result.getAddress().toString();
             int port = result.getPort();
             ret = "MYCLOSEST_" + ip + ":" + port;
-        }
-
-        else if (request.startsWith("YOURSUCC")) {
+        } else if (request.startsWith("YOURSUCC")) {
             result = local.getSuccessor();
             if (result != null) {
                 String ip = result.getAddress().toString();
@@ -73,9 +71,7 @@ public class CommunicatorThread implements Runnable {
             } else {
                 ret = "NOTHING";
             }
-        }
-
-        else if (request.startsWith("YOURPRE")) {
+        } else if (request.startsWith("YOURPRE")) {
             result = local.getPredecessor();
             if (result != null) {
                 String ip = result.getAddress().toString();
@@ -84,23 +80,17 @@ public class CommunicatorThread implements Runnable {
             } else {
                 ret = "NOTHING";
             }
-        }
-
-        else if (request.startsWith("FINDSUCC")) {
+        } else if (request.startsWith("FINDSUCC")) {
             long id = Long.parseLong(request.split("_")[1]);
             result = local.findSuccessor(id);
             String ip = result.getAddress().toString();
             int port = result.getPort();
             ret = "FOUNDSUCC_" + ip + ":" + port;
-        }
-
-        else if (request.startsWith("IAMPRE")) {
+        } else if (request.startsWith("IAMPRE")) {
             InetSocketAddress newPredecessor = Util.createSocketAddress(request.split("_")[1]);
             local.notified(newPredecessor);
             ret = "NOTIFIED";
-        }
-
-        else if (request.startsWith("KEEP")) {
+        } else if (request.startsWith("KEEP")) {
             ret = "ALIVE";
         }
 
