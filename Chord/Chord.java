@@ -1,87 +1,173 @@
+
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
 /**
- * Chord class that offers the UI to create chord node 
- * and join a existing chord ring.
- * @author Chuan Xia
+ * @author Raghav Bhandari
+ * @author Krishna Kandhani
+ * @author Abhiman Kolte
+ * @author Dhruv Mevada
+ *
+ * Driver class for chord.
  *
  */
+public class Chord
+{
+	private static String port = "";
+	private static String ipAddressPort = "";
+	private static Node node;
+	private static InetSocketAddress contactNode;
+	private Util util = new Util();
 
-public class Chord {
-	
-	private static Node m_node;
-	private static InetSocketAddress m_contact;
-	private static Helper m_helper;
+	private static String getOwnIp()
+	{
+		try
+		{
+			return InetAddress.getLocalHost().getHostAddress();
+		}
 
-	public static void main (String[] args) {
-		
-		m_helper = new Helper();
-		
-		// get local machine's ip 
-		String local_ip = null;
-		try {
-			local_ip = InetAddress.getLocalHost().getHostAddress();
+		catch (UnknownHostException error)
+		{
+			error.printStackTrace();
+			return "";
+		}
+	}
 
-		} catch (UnknownHostException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+	public static void main(String[] args) throws UnknownHostException
+	{
+		Chord chord = new Chord();
+		int value = chord.parseArguments(args);
+
+		if (value == 1)
+		{
+			//todo
+			//list chord ring
 		}
-		
-		// create node
-		m_node = new Node (Helper.createSocketAddress(local_ip+":"+args[0]));
-		
-		// determine if it's creating or joining a existing ring
-		// create, contact is this node itself
-		if (args.length == 1) {
-			m_contact = m_node.getAddress();
+
+		//create chord ring
+		else if (value == 2)
+		{
+			port = args[1];
+			String ipPort = getOwnIp() + ":" + port;
+
+			node = new Node(Util.createSocketAddress(ipPort));
+			contactNode = node.getAddress();
 		}
-		
-		// join, contact is another node
-		else if (args.length == 3) {
-			m_contact = Helper.createSocketAddress(args[1]+":"+args[2]);
-			if (m_contact == null) {
-				System.out.println("Cannot find address you are trying to contact. Now exit.");
-				return;
-			}	
-		}
-		
-		else {
-			System.out.println("Wrong input. Now exit.");
-			System.exit(0);
-		}
-		
-		// try to join ring from contact node
-		boolean successful_join = m_node.join(m_contact);
-		
-		// fail to join contact node
-		if (!successful_join) {
-			System.out.println("Cannot connect with node you are trying to contact. Now exit.");
-			System.exit(0);
-		}
-		
-		// print join info
-		System.out.println("Joining the Chord ring.");
-		System.out.println("Local IP: "+local_ip);
-		m_node.printNeighbors();
-		
-		// begin to take user input, "info" or "quit"
-		Scanner userinput = new Scanner(System.in);
-		while(true) {
-			System.out.println("\nType \"info\" to check this node's data or \n type \"quit\"to leave ring: ");
-			String command = null;
-			command = userinput.next();
-			if (command.startsWith("quit")) {
-				m_node.stopAllThreads();
-				System.out.println("Leaving the ring...");
+
+		//join existing chord ring
+		else if (value == 3)
+		{
+			port = args[1];
+			ipAddressPort = args[2];
+
+			node = new Node(Util.createSocketAddress(getOwnIp() + ":" + port));
+			contactNode = Util.createSocketAddress(ipAddressPort);
+
+			if (contactNode == null)
+			{
+				Logger.log("Address of contact node not resolved, cannot join ring, exiting.");
 				System.exit(0);
-				
-			}
-			else if (command.startsWith("info")) {
-				m_node.printDataStructure();
 			}
 		}
+
+		else
+		{
+			Logger.log("Could not parse arguments, exiting");
+			System.exit(0);
+		}
+
+		boolean joinedSuccessfully = node.join(contactNode);
+
+		if (!joinedSuccessfully)
+		{
+			Logger.log("Could not connect with node, exiting.");
+			System.exit(0);
+		}
+
+		Logger.log("Joining the chord ring, with local ip: " + getOwnIp());
+
+		Scanner in = new Scanner(System.in);
+		while (true)
+		{
+			Logger.log("Select from the options below: ");
+			Logger.log("- Info");
+			Logger.log("- Quit");
+
+			String userCommand = in.next();
+
+			if (userCommand.equalsIgnoreCase("info"))
+			{
+				node.printDataStructure();
+				node.printNeighbors();
+			}
+
+			else if (userCommand.equalsIgnoreCase("quit"))
+			{
+				//stop threads
+				Logger.log("");
+				node.stopAllThreads();
+//				PersistentLogger.getInstance().logD("Logger stopped");
+				System.exit(0);
+			}
+		}
+	}
+
+	private int parseArguments(String[] args)
+	{
+		int returnValue = 0;
+
+		//list nodes in chord ring
+		if (args.length == 1)
+		{
+			if (args[0].equalsIgnoreCase("list"))
+			{
+				returnValue = 1;
+			}
+
+			else
+			{
+				printHelp();
+			}
+		}
+
+		//create a chord ring
+		else if (args.length == 2) {
+			if (args[0].equalsIgnoreCase("create"))
+			{
+				returnValue = 2;
+			} else {
+				printHelp();
+			}
+		}
+
+		//join an existing chord ring
+		else if (args.length == 3)
+		{
+			if (args[0].equalsIgnoreCase("join"))
+			{
+				returnValue = 3;
+			} else {
+				printHelp();
+			}
+		}
+
+		else
+		{
+			printHelp();
+		}
+
+		return returnValue;
+	}
+
+	private void printHelp()
+	{
+		Logger.log("Cannot determine command, will not start\n");
+		Logger.log("Usage: java Chord <list> <create> <join>\n");
+		Logger.log("Please specify a command from one of the formats below.");
+		Logger.log("    1) java list");
+		Logger.log("    2) java create <port>");
+		Logger.log("    3) java join <port> <ip:port>");
 	}
 }

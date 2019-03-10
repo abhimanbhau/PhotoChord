@@ -28,7 +28,7 @@ public class Talker implements Runnable{
 		OutputStream output = null;
 		try {
 			input = talkSocket.getInputStream();
-			String request = Helper.inputStreamToString(input);
+			String request = Util.inputStreamToString(input);
 			String response = processRequest(request);
 			if (response != null) {
 				output = talkSocket.getOutputStream();
@@ -85,7 +85,7 @@ public class Talker implements Runnable{
 			ret = "FOUNDSUCC_"+ip+":"+port;
 		}
 		else if (request.startsWith("IAMPRE")) {
-			InetSocketAddress new_pre = Helper.createSocketAddress(request.split("_")[1]);
+			InetSocketAddress new_pre = Util.createSocketAddress(request.split("_")[1]);
 			local.notified(new_pre);
 			ret = "NOTIFIED";
 		}

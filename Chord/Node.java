@@ -27,7 +27,7 @@ public class Node {
 	public Node (InetSocketAddress address) {
 
 		localAddress = address;
-		localId = Helper.hashSocketAddress(localAddress);
+		localId = Util.hashSocketAddress(localAddress);
 
 		// initialize an empty finge table
 		finger = new HashMap<Integer, InetSocketAddress>();
@@ -56,7 +56,7 @@ public class Node {
 		// if contact is other node (join ring), try to contact that node
 		// (contact will never be null)
 		if (contact != null && !contact.equals(localAddress)) {
-			InetSocketAddress successor = Helper.requestAddress(contact, "FINDSUCC_" + localId);
+			InetSocketAddress successor = Util.requestAddress(contact, "FINDSUCC_" + localId);
 			if (successor == null)  {
 				System.out.println("\nCannot find node you are trying to contact. Please exit.\n");
 				return false;
@@ -80,7 +80,7 @@ public class Node {
 	 */
 	public String notify(InetSocketAddress successor) {
 		if (successor!=null && !successor.equals(localAddress))
-			return Helper.sendRequest(successor, "IAMPRE_"+localAddress.getAddress().toString()+":"+localAddress.getPort());
+			return Util.sendRequest(successor, "IAMPRE_"+localAddress.getAddress().toString()+":"+localAddress.getPort());
 		else
 			return null;
 	}
@@ -94,9 +94,9 @@ public class Node {
 			this.setPredecessor(newpre);
 		}
 		else {
-			long oldpre_id = Helper.hashSocketAddress(predecessor);
-			long local_relative_id = Helper.computeRelativeId(localId, oldpre_id);
-			long newpre_relative_id = Helper.computeRelativeId(Helper.hashSocketAddress(newpre), oldpre_id);
+			long oldpre_id = Util.hashSocketAddress(predecessor);
+			long local_relative_id = Util.computeRelativeId(localId, oldpre_id);
+			long newpre_relative_id = Util.computeRelativeId(Util.hashSocketAddress(newpre), oldpre_id);
 			if (newpre_relative_id > 0 && newpre_relative_id < local_relative_id)
 				this.setPredecessor(newpre);
 		}
@@ -117,7 +117,7 @@ public class Node {
 
 		// if other node found, ask it for its successor
 		if (!pre.equals(localAddress))
-			ret = Helper.requestAddress(pre, "YOURSUCC");
+			ret = Util.requestAddress(pre, "YOURSUCC");
 
 		// if ret is still null, set it as local node, return
 		if (ret == null)
@@ -128,7 +128,6 @@ public class Node {
 
 	/**
 	 * Ask current node to find id's predecessor
-	 * @param id
 	 * @return id's successor's socket address
 	 */
 	private InetSocketAddress find_predecessor (long findid) {
@@ -137,8 +136,8 @@ public class Node {
 		InetSocketAddress most_recently_alive = this.localAddress;
 		long n_successor_relative_id = 0;
 		if (n_successor != null)
-			n_successor_relative_id = Helper.computeRelativeId(Helper.hashSocketAddress(n_successor), Helper.hashSocketAddress(n));
-		long findid_relative_id = Helper.computeRelativeId(findid, Helper.hashSocketAddress(n));
+			n_successor_relative_id = Util.computeRelativeId(Util.hashSocketAddress(n_successor), Util.hashSocketAddress(n));
+		long findid_relative_id = Util.computeRelativeId(findid, Util.hashSocketAddress(n));
 
 		while (!(findid_relative_id > 0 && findid_relative_id <= n_successor_relative_id)) {
 
@@ -152,12 +151,12 @@ public class Node {
 
 			// else current node is remote node, sent request to it for its closest
 			else {
-				InetSocketAddress result = Helper.requestAddress(n, "CLOSEST_" + findid);
+				InetSocketAddress result = Util.requestAddress(n, "CLOSEST_" + findid);
 
 				// if fail to get response, set n to most recently 
 				if (result == null) {
 					n = most_recently_alive;
-					n_successor = Helper.requestAddress(n, "YOURSUCC");
+					n_successor = Util.requestAddress(n, "YOURSUCC");
 					if (n_successor==null) {
 						System.out.println("It's not possible.");
 						return localAddress;
@@ -174,20 +173,20 @@ public class Node {
 					// set n as most recently alive
 					most_recently_alive = n;		
 					// ask "result" for its successor
-					n_successor = Helper.requestAddress(result, "YOURSUCC");	
+					n_successor = Util.requestAddress(result, "YOURSUCC");
 					// if we can get its response, then "result" must be our next n
 					if (n_successor!=null) {
 						n = result;
 					}
 					// else n sticks, ask n's successor
 					else {
-						n_successor = Helper.requestAddress(n, "YOURSUCC");
+						n_successor = Util.requestAddress(n, "YOURSUCC");
 					}
 				}
 
 				// compute relative ids for while loop judgement
-				n_successor_relative_id = Helper.computeRelativeId(Helper.hashSocketAddress(n_successor), Helper.hashSocketAddress(n));
-				findid_relative_id = Helper.computeRelativeId(findid, Helper.hashSocketAddress(n));
+				n_successor_relative_id = Util.computeRelativeId(Util.hashSocketAddress(n_successor), Util.hashSocketAddress(n));
+				findid_relative_id = Util.computeRelativeId(findid, Util.hashSocketAddress(n));
 			}
 			if (pre_n.equals(n))
 				break;
@@ -201,7 +200,7 @@ public class Node {
 	 * @return closest finger preceding node's socket address
 	 */
 	public InetSocketAddress closest_preceding_finger (long findid) {
-		long findid_relative = Helper.computeRelativeId(findid, localId);
+		long findid_relative = Util.computeRelativeId(findid, localId);
 
 		// check from last item in finger table
 		for (int i = 32; i > 0; i--) {
@@ -209,12 +208,12 @@ public class Node {
 			if (ith_finger == null) {
 				continue;
 			}
-			long ith_finger_id = Helper.hashSocketAddress(ith_finger);
-			long ith_finger_relative_id = Helper.computeRelativeId(ith_finger_id, localId);
+			long ith_finger_id = Util.hashSocketAddress(ith_finger);
+			long ith_finger_relative_id = Util.computeRelativeId(ith_finger_id, localId);
 
 			// if its relative id is the closest, check if its alive
 			if (ith_finger_relative_id > 0 && ith_finger_relative_id < findid_relative)  {
-				String response  = Helper.sendRequest(ith_finger, "KEEP");
+				String response  = Util.sendRequest(ith_finger, "KEEP");
 
 				//it is alive, return it
 				if (response!=null &&  response.equals("ALIVE")) {
@@ -314,7 +313,7 @@ public class Node {
 			InetSocketAddress p = predecessor;
 			InetSocketAddress p_pre = null;
 			while (true) {
-				p_pre = Helper.requestAddress(p, "YOURPRE");
+				p_pre = Util.requestAddress(p, "YOURPRE");
 				if (p_pre == null)
 					break;
 
@@ -418,7 +417,7 @@ public class Node {
 
 	public void printNeighbors () {
 		System.out.println("\nYou are listening on port "+localAddress.getPort()+"."
-				+ "\nYour position is "+Helper.hexIdAndPosition(localAddress)+".");
+				+ "\nYour position is "+Util.hexIdAndPosition(localAddress)+".");
 		InetSocketAddress successor = finger.get(1);
 		
 		// if it cannot find both predecessor and successor
@@ -432,7 +431,7 @@ public class Node {
 		else {
 			if (predecessor != null) {
 				System.out.println("Your predecessor is node "+predecessor.getAddress().toString()+", "
-						+ "port "+predecessor.getPort()+ ", position "+Helper.hexIdAndPosition(predecessor)+".");
+						+ "port "+predecessor.getPort()+ ", position "+Util.hexIdAndPosition(predecessor)+".");
 			}
 			else {
 				System.out.println("Your predecessor is updating.");
@@ -440,7 +439,7 @@ public class Node {
 
 			if (successor != null) {
 				System.out.println("Your successor is node "+successor.getAddress().toString()+", "
-						+ "port "+successor.getPort()+ ", position "+Helper.hexIdAndPosition(successor)+".");
+						+ "port "+successor.getPort()+ ", position "+Util.hexIdAndPosition(successor)+".");
 			}
 			else {
 				System.out.println("Your successor is updating.");
@@ -450,19 +449,19 @@ public class Node {
 
 	public void printDataStructure () {
 		System.out.println("\n==============================================================");
-		System.out.println("\nLOCAL:\t\t\t\t"+localAddress.toString()+"\t"+Helper.hexIdAndPosition(localAddress));
+		System.out.println("\nLOCAL:\t\t\t\t"+localAddress.toString()+"\t"+Util.hexIdAndPosition(localAddress));
 		if (predecessor != null)
-			System.out.println("\nPREDECESSOR:\t\t\t"+predecessor.toString()+"\t"+Helper.hexIdAndPosition(predecessor));
+			System.out.println("\nPREDECESSOR:\t\t\t"+predecessor.toString()+"\t"+Util.hexIdAndPosition(predecessor));
 		else 
 			System.out.println("\nPREDECESSOR:\t\t\tNULL");
 		System.out.println("\nFINGER TABLE:\n");
 		for (int i = 1; i <= 32; i++) {
-			long ithstart = Helper.ithStart(Helper.hashSocketAddress(localAddress),i);
+			long ithstart = Util.ithStart(Util.hashSocketAddress(localAddress),i);
 			InetSocketAddress f = finger.get(i);
 			StringBuilder sb = new StringBuilder();
-			sb.append(i+"\t"+ Helper.longTo8DigitHex(ithstart)+"\t\t");
+			sb.append(i+"\t"+ Util.longTo8DigitHex(ithstart)+"\t\t");
 			if (f!= null)
-				sb.append(f.toString()+"\t"+Helper.hexIdAndPosition(f));
+				sb.append(f.toString()+"\t"+Util.hexIdAndPosition(f));
 
 			else 
 				sb.append("NULL");

@@ -21,7 +21,7 @@ public class AskPredecessor extends Thread {
 		while (alive) {
 			InetSocketAddress predecessor = local.getPredecessor();
 			if (predecessor != null) {
-				String response = Helper.sendRequest(predecessor, "KEEP");
+				String response = Util.sendRequest(predecessor, "KEEP");
 				if (response == null || !response.equals("ALIVE")) {
 					local.clearPredecessor();	
 				}
