@@ -2,7 +2,7 @@ package edu.scu.thread;
 
 import java.net.InetSocketAddress;
 
-import edu.scu.Node;
+import edu.scu.core.Node;
 import edu.scu.util.Util;
 
 /**

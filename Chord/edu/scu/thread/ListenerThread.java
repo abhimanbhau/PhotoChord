@@ -5,7 +5,7 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import edu.scu.Node;
+import edu.scu.core.Node;
 
 /**
  * ListenerThread thread that keeps listening to a port and asks talker thread to process

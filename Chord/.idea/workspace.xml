@@ -209,7 +209,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Chord" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.scu.Chord" />
+      <option name="MAIN_CLASS_NAME" value="edu.scu.core.Chord" />
       <module name="Chord" />
       <option name="PROGRAM_PARAMETERS" value="create 9000" />
       <method v="2">
