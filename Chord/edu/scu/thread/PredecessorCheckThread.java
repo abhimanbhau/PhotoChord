@@ -6,8 +6,8 @@ import edu.scu.util.Util;
 import java.net.InetSocketAddress;
 
 /**
- * Predecessor thread that periodically asks for predecessor's keep-alive,
- * and delete predecessor if it's dead.
+ * Predecessor thread that periodically asks for predecessor's keep-alive, and delete predecessor if
+ * it's dead.
  *
  * @author Raghav Bhandari
  * @author Krishna Kandhani
@@ -33,7 +33,6 @@ public class PredecessorCheckThread extends Thread {
                 if (response == null || !response.equals("ALIVE")) {
                     local.clearPredecessor();
                 }
-
             }
             try {
                 Thread.sleep(500);
@@ -47,5 +46,3 @@ public class PredecessorCheckThread extends Thread {
         alive = false;
     }
 }
-
-

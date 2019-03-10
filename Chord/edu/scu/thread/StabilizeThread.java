@@ -6,15 +6,14 @@ import edu.scu.util.Util;
 import java.net.InetSocketAddress;
 
 /**
- * StabilizeThread thread that periodically asks successor for its predecessor
- * and determine if current node should update or delete its successor.
+ * StabilizeThread thread that periodically asks successor for its predecessor and determine if
+ * current node should update or delete its successor.
  *
  * @author Raghav Bhandari
  * @author Krishna Kandhani
  * @author Abhiman Kolte
  * @author Dhruv Mevada
  */
-
 public class StabilizeThread extends Thread {
 
     private Node local;
@@ -30,7 +29,7 @@ public class StabilizeThread extends Thread {
         while (alive) {
             InetSocketAddress successor = local.getSuccessor();
             if (successor == null || successor.equals(local.getAddress())) {
-                local.updateFingers(-3, null); //fill
+                local.updateFingers(-3, null); // fill
             }
             successor = local.getSuccessor();
             if (successor != null && !successor.equals(local.getAddress())) {
@@ -46,7 +45,8 @@ public class StabilizeThread extends Thread {
                 // else if successor's predecessor is not itself
                 else if (!x.equals(successor)) {
                     long localId = Util.hashSocketAddress(local.getAddress());
-                    long successorRelativeId = Util.computeRelativeId(Util.hashSocketAddress(successor), localId);
+                    long successorRelativeId =
+                            Util.computeRelativeId(Util.hashSocketAddress(successor), localId);
                     long xRelativeId = Util.computeRelativeId(Util.hashSocketAddress(x), localId);
                     if (xRelativeId > 0 && xRelativeId < successorRelativeId) {
                         local.updateFingers(1, x);
@@ -65,7 +65,6 @@ public class StabilizeThread extends Thread {
                 e.printStackTrace();
             }
         }
-
     }
 
     public void toDie() {

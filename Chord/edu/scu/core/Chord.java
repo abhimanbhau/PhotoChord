@@ -13,32 +13,31 @@ import java.util.Scanner;
  * @author Krishna Kandhani
  * @author Abhiman Kolte
  * @author Dhruv Mevada
- * <p>
- * Driver class for Chord application.
+ * <p>Driver class for Chord application.
  */
 public class Chord {
     private static Node node;
     private static InetSocketAddress contactNode;
     private Util util = new Util();
 
-//    private static String getOwnIp() {
-//        try {
-//            URL whatismyip = new URL("http://checkip.amazonaws.com");
-//            BufferedReader in = new BufferedReader(new InputStreamReader(
-//                    whatismyip.openStream()));
-//
-//            String ip = in.readLine(); //you get the IP as a String
-//            return InetAddress.getByName(ip).getHostAddress();
-//        } catch (UnknownHostException error) {
-//            error.printStackTrace();
-//            return null;
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
+    //    private static String getOwnIp() {
+    //        try {
+    //            URL whatismyip = new URL("http://checkip.amazonaws.com");
+    //            BufferedReader in = new BufferedReader(new InputStreamReader(
+    //                    whatismyip.openStream()));
+    //
+    //            String ip = in.readLine(); //you get the IP as a String
+    //            return InetAddress.getByName(ip).getHostAddress();
+    //        } catch (UnknownHostException error) {
+    //            error.printStackTrace();
+    //            return null;
+    //        } catch (MalformedURLException e) {
+    //            e.printStackTrace();
+    //        } catch (IOException e) {
+    //            e.printStackTrace();
+    //        }
+    //        return null;
+    //    }
 
     private static String getOwnIp() {
         try {
@@ -55,7 +54,7 @@ public class Chord {
 
         String port = "";
 
-        //create chord ring
+        // create chord ring
         if (value == 2) {
             port = args[1];
             String ipPort = getOwnIp() + ":" + port;
@@ -64,7 +63,7 @@ public class Chord {
             contactNode = node.getAddress();
         }
 
-        //join existing chord ring
+        // join existing chord ring
         else if (value == 3) {
             port = args[1];
             String ipAddressPort = args[2];
@@ -100,7 +99,7 @@ public class Chord {
 
             if (userCommand.equalsIgnoreCase("data")) {
                 node.printDataStructure();
-//                node.printNeighbors();
+                //                node.printNeighbors();
             } else if (userCommand.equalsIgnoreCase("exit")) {
                 Logger.log("");
                 node.stopAllThreads();
@@ -112,7 +111,7 @@ public class Chord {
     private int parseArguments(String[] args) {
         int returnValue = 0;
 
-        //list nodes in chord ring
+        // list nodes in chord ring
         if (args.length == 1) {
             if (args[0].equalsIgnoreCase("list")) {
                 returnValue = 1;
@@ -121,7 +120,7 @@ public class Chord {
             }
         }
 
-        //create a chord ring
+        // create a chord ring
         else if (args.length == 2) {
             if (args[0].equalsIgnoreCase("create")) {
                 returnValue = 2;
@@ -130,7 +129,7 @@ public class Chord {
             }
         }
 
-        //join an existing chord ring
+        // join an existing chord ring
         else if (args.length == 3) {
             if (args[0].equalsIgnoreCase("join")) {
                 returnValue = 3;

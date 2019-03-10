@@ -12,12 +12,14 @@ import java.util.HashMap;
  */
 public class Constants {
     public static final int _mpiPort = 5678;
-    public static HashMap<String, Integer> refMap = new HashMap<String, Integer>() {{
-        put("Games", 1);
-        put("Movies", 2);
-        put("Cities", 3);
-        put("Nature", 4);
-        put("Car", 5);
-    }};
-
+    public static HashMap<String, Integer> refMap =
+            new HashMap<String, Integer>() {
+                {
+                    put("Games", 1);
+                    put("Movies", 2);
+                    put("Cities", 3);
+                    put("Nature", 4);
+                    put("Car", 5);
+                }
+            };
 }

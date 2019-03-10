@@ -7,15 +7,13 @@ import java.net.InetSocketAddress;
 import java.util.Random;
 
 /**
- * UpdateFingers thread that periodically accesses a random entry in finger table
- * and fixes it.
+ * UpdateFingers thread that periodically accesses a random entry in finger table and fixes it.
  *
  * @author Raghav Bhandari
  * @author Krishna Kandhani
  * @author Abhiman Kolte
  * @author Dhruv Mevada
  */
-
 public class UpdateFingersThread extends Thread {
 
     private Random random;

@@ -10,15 +10,13 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 
 /**
- * A Util class which provide methods for hashing, sending requests,
- * and more.
+ * A Util class which provide methods for hashing, sending requests, and more.
  *
  * @author Raghav Bhandari
  * @author Krishna Kandhani
  * @author Abhiman Kolte
  * @author Dhruv Mevada
  */
-
 public class Util {
 
     private static HashMap<Integer, Long> powerOfTwo = null;
@@ -36,10 +34,11 @@ public class Util {
      * Compute a socket address' 32 bit identifier
      */
     public static long hashSocketAddress(InetSocketAddress address) {
-//        return hashHashCode(address.hashCode());
-//        Logger.log(address.getHostString());
-        String lastTriplet = address.getHostString().substring(address.getHostString().lastIndexOf(".") + 1);
-//        Logger.log(lastTriplet);
+        //        return hashHashCode(address.hashCode());
+        //        Logger.log(address.getHostString());
+        String lastTriplet =
+                address.getHostString().substring(address.getHostString().lastIndexOf(".") + 1);
+        //        Logger.log(lastTriplet);
         return Integer.parseInt(lastTriplet) % 32;
     }
 
@@ -55,7 +54,7 @@ public class Util {
      */
     private static long hashHashCode(int i) {
 
-        //32 bit regular hash code -> byte[4]
+        // 32 bit regular hash code -> byte[4]
         byte[] hashBytes = new byte[4];
         hashBytes[0] = (byte) (i >> 24);
         hashBytes[1] = (byte) (i >> 16);
@@ -87,7 +86,11 @@ public class Util {
                 compressed[j] = temp;
             }
 
-            long ret = (compressed[0] & 0xFF) << 24 | (compressed[1] & 0xFF) << 16 | (compressed[2] & 0xFF) << 8 | (compressed[3] & 0xFF);
+            long ret =
+                    (compressed[0] & 0xFF) << 24
+                            | (compressed[1] & 0xFF) << 16
+                            | (compressed[2] & 0xFF) << 8
+                            | (compressed[3] & 0xFF);
             ret = ret & 0xFFFFFFFFL;
             return ret;
         }
@@ -95,8 +98,8 @@ public class Util {
     }
 
     /**
-     * Normalization, compute universal id's value relative to local id,
-     * considering local node with an id of 0.
+     * Normalization, compute universal id's value relative to local id, considering local node with
+     * an id of 0.
      */
     public static long computeRelativeId(long universal, long local) {
         long ret = universal - local;
@@ -106,28 +109,28 @@ public class Util {
         return ret;
     }
 
-//    /**
-//     * Compute a socket address' SHA-1 hash in hex
-//     * and its approximate position in string
-//     */
-//    public static String hexIdAndPosition(InetSocketAddress address) {
-//        long hash = hashSocketAddress(address);
-//        return (longTo8DigitHex(hash) + " (" + hash * 100 / Util.getPowerOfTwo(32) + "%)");
-//    }
-//
-//    /**
-//     * @return
-//     */
-//    public static String longTo8DigitHex(long l) {
-//        String hex = Long.toHexString(l);
-//        int lack = 8 - hex.length();
-//        StringBuilder sb = new StringBuilder();
-//        for (int i = lack; i > 0; i--) {
-//            sb.append("0");
-//        }
-//        sb.append(hex);
-//        return sb.toString();
-//    }
+    //    /**
+    //     * Compute a socket address' SHA-1 hash in hex
+    //     * and its approximate position in string
+    //     */
+    //    public static String hexIdAndPosition(InetSocketAddress address) {
+    //        long hash = hashSocketAddress(address);
+    //        return (longTo8DigitHex(hash) + " (" + hash * 100 / Util.getPowerOfTwo(32) + "%)");
+    //    }
+    //
+    //    /**
+    //     * @return
+    //     */
+    //    public static String longTo8DigitHex(long l) {
+    //        String hex = Long.toHexString(l);
+    //        int lack = 8 - hex.length();
+    //        StringBuilder sb = new StringBuilder();
+    //        for (int i = lack; i > 0; i--) {
+    //            sb.append("0");
+    //        }
+    //        sb.append(hex);
+    //        return sb.toString();
+    //    }
 
     /**
      * Return a node's finger[i].start, universal
@@ -158,8 +161,7 @@ public class Util {
 
         if (response == null) {
             return null;
-        } else if (response.startsWith("NOTHING"))
-            return server;
+        } else if (response.startsWith("NOTHING")) return server;
 
             // server found something, use response to create
         else {
@@ -172,8 +174,7 @@ public class Util {
      */
     public static String sendRequest(InetSocketAddress server, String req) {
 
-        if (server == null || req == null)
-            return null;
+        if (server == null || req == null) return null;
 
         Socket talkSocket = null;
 
@@ -183,7 +184,7 @@ public class Util {
             PrintStream output = new PrintStream(talkSocket.getOutputStream());
             output.println(req);
         } catch (IOException e) {
-            //Logger.log("\nCannot send request to "+server.toString()+"\nRequest is: "+req+"\n");
+            // Logger.log("\nCannot send request to "+server.toString()+"\nRequest is: "+req+"\n");
             return null;
         }
 
@@ -198,7 +199,8 @@ public class Util {
         try {
             input = talkSocket.getInputStream();
         } catch (IOException e) {
-            Logger.log("Cannot get input stream from " + server.toString() + "\nRequest is: " + req + "\n");
+            Logger.log(
+                    "Cannot get input stream from " + server.toString() + "\nRequest is: " + req + "\n");
         }
 
         String response = Util.inputStreamToString(input);
@@ -206,8 +208,7 @@ public class Util {
         try {
             talkSocket.close();
         } catch (IOException e) {
-            throw new RuntimeException(
-                    "Cannot close socket", e);
+            throw new RuntimeException("Cannot close socket", e);
         }
 
         return response;
@@ -233,7 +234,7 @@ public class Util {
                 ip = ip.substring(1);
             }
 
-            //parse ip address
+            // parse ip address
             InetAddress mIp = null;
             try {
                 mIp = InetAddress.getByName(ip);

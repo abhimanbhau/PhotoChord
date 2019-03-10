@@ -10,15 +10,14 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 
 /**
- * CommunicatorThread thread that processes request accepted by listener and writes
- * response to socket.
+ * CommunicatorThread thread that processes request accepted by listener and writes response to
+ * socket.
  *
  * @author Raghav Bhandari
  * @author Krishna Kandhani
  * @author Abhiman Kolte
  * @author Dhruv Mevada
  */
-
 class CommunicatorThread implements Runnable {
 
     private Socket talkSocket;
@@ -43,8 +42,11 @@ class CommunicatorThread implements Runnable {
             input.close();
         } catch (IOException e) {
             throw new RuntimeException(
-                    "Cannot talk.\nServer port: " + local.getAddress().getPort() + "; CommunicatorThread port: " +
-                            talkSocket.getPort(), e);
+                    "Cannot talk.\nServer port: "
+                            + local.getAddress().getPort()
+                            + "; CommunicatorThread port: "
+                            + talkSocket.getPort(),
+                    e);
         }
     }
 

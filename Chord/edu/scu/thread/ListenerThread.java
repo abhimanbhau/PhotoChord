@@ -8,15 +8,14 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * ListenerThread thread that keeps listening to a port and asks talker thread to process
- * when a request is accepted.
+ * ListenerThread thread that keeps listening to a port and asks talker thread to process when a
+ * request is accepted.
  *
  * @author Raghav Bhandari
  * @author Krishna Kandhani
  * @author Abhiman Kolte
  * @author Dhruv Mevada
  */
-
 public class ListenerThread extends Thread {
 
     private Node local;
@@ -29,7 +28,7 @@ public class ListenerThread extends Thread {
         InetSocketAddress localAddress = local.getAddress();
         int port = localAddress.getPort();
 
-        //open server/listener socket
+        // open server/listener socket
         try {
             serverSocket = new ServerSocket(port);
         } catch (IOException e) {
@@ -44,11 +43,10 @@ public class ListenerThread extends Thread {
             try {
                 talkSocket = serverSocket.accept();
             } catch (IOException e) {
-                throw new RuntimeException(
-                        "Cannot accept connection", e);
+                throw new RuntimeException("Cannot accept connection", e);
             }
 
-            //new communicator thread
+            // new communicator thread
             new Thread(new CommunicatorThread(talkSocket, local)).start();
         }
     }
