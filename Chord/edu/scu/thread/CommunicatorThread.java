@@ -1,8 +1,13 @@
+package edu.scu.thread;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+
+import edu.scu.Node;
+import edu.scu.util.Util;
 
 /**
  * CommunicatorThread thread that processes request accepted by listener and writes

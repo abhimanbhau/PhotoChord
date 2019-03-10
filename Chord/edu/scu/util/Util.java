@@ -1,3 +1,5 @@
+package edu.scu.util;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -297,7 +299,6 @@ public class Util {
         else {
             return null;
         }
-
     }
 
     /**
@@ -327,6 +328,4 @@ public class Util {
 
         return line;
     }
-
-
 }

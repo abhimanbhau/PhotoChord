@@ -1,4 +1,9 @@
+package edu.scu.thread;
+
 import java.net.InetSocketAddress;
+
+import edu.scu.Node;
+import edu.scu.util.Util;
 
 /**
  * StabilizeThread thread that periodically asks successor for its predecessor
@@ -66,6 +71,4 @@ public class StabilizeThread extends Thread {
     public void toDie() {
         alive = false;
     }
-
-
 }

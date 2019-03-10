@@ -1,3 +1,12 @@
+package edu.scu;
+
+import edu.scu.util.Logger;
+import edu.scu.util.Util;
+import edu.scu.thread.ListenerThread;
+import edu.scu.thread.PredecessorCheckThread;
+import edu.scu.thread.StabilizeThread;
+import edu.scu.thread.UpdateFingersThread;
+
 import java.net.InetSocketAddress;
 import java.util.HashMap;
 
@@ -23,22 +32,16 @@ public class Node {
     private UpdateFingersThread fix_fingers;
     private PredecessorCheckThread ask_predecessor;
 
-    /**
-     * Constructor
-     *
-     * @param address: this node's local address
-     */
     public Node(InetSocketAddress address) {
         localAddress = address;
         localId = Util.hashSocketAddress(localAddress);
 
-        // initialize an empty finge table
+        // initialize an empty finger table
         finger = new HashMap<Integer, InetSocketAddress>();
         for (int i = 1; i <= 32; i++) {
             updateIthFinger(i, null);
         }
 
-        // initialize predecessor
         predecessor = null;
 
         // initialize threads
