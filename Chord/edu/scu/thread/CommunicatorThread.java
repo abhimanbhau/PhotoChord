@@ -51,16 +51,20 @@ public class CommunicatorThread implements Runnable {
     private String processRequest(String request) {
         InetSocketAddress result = null;
         String ret = null;
+
         if (request == null) {
             return null;
         }
+
         if (request.startsWith("CLOSEST")) {
             long id = Long.parseLong(request.split("_")[1]);
             result = local.findClosestPrecedingFinger(id);
             String ip = result.getAddress().toString();
             int port = result.getPort();
             ret = "MYCLOSEST_" + ip + ":" + port;
-        } else if (request.startsWith("YOURSUCC")) {
+        }
+
+        else if (request.startsWith("YOURSUCC")) {
             result = local.getSuccessor();
             if (result != null) {
                 String ip = result.getAddress().toString();
@@ -69,7 +73,9 @@ public class CommunicatorThread implements Runnable {
             } else {
                 ret = "NOTHING";
             }
-        } else if (request.startsWith("YOURPRE")) {
+        }
+
+        else if (request.startsWith("YOURPRE")) {
             result = local.getPredecessor();
             if (result != null) {
                 String ip = result.getAddress().toString();
@@ -78,17 +84,23 @@ public class CommunicatorThread implements Runnable {
             } else {
                 ret = "NOTHING";
             }
-        } else if (request.startsWith("FINDSUCC")) {
+        }
+
+        else if (request.startsWith("FINDSUCC")) {
             long id = Long.parseLong(request.split("_")[1]);
             result = local.findSuccessor(id);
             String ip = result.getAddress().toString();
             int port = result.getPort();
             ret = "FOUNDSUCC_" + ip + ":" + port;
-        } else if (request.startsWith("IAMPRE")) {
+        }
+
+        else if (request.startsWith("IAMPRE")) {
             InetSocketAddress new_pre = Util.createSocketAddress(request.split("_")[1]);
             local.notified(new_pre);
             ret = "NOTIFIED";
-        } else if (request.startsWith("KEEP")) {
+        }
+
+        else if (request.startsWith("KEEP")) {
             ret = "ALIVE";
         }
 
