@@ -1,42 +1,59 @@
-import com.sun.corba.se.spi.activation.Server;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.net.ServerSocket;
 import java.net.Socket;
 
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
+    PrintWriter out;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<h3>Hello World!</h3>");
+        response.setContentType("text/html");
+        out = response.getWriter();
+        String node = request.getParameter("node");
+        String tag = request.getParameter("tag");
 
-        Socket client = new Socket("172.21.102.189", 5678);
-        System.out.println("new client");
+        if (node.equals("null") || node.equals("null")) {
+            return;
+        }
+        requestChord(node, tag, out);
+
+    }
+
+    private void handleImages(OutputStream out, String res) throws IOException {
+
+    }
+
+    private void requestChord(String IP, String tag, PrintWriter out) throws IOException {
+        Socket client = new Socket(IP, 5678);
         BufferedWriter os = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
-        BufferedReader in = new BufferedReader(new InputStreamReader( client.getInputStream()));
-        System.out.println("Setup is and os");
-        os.write("Games\r\n");
+        BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+        os.write(tag + "\r\n");
         os.flush();
-        System.out.println("OS write bytes");
-        String result = in.readLine();
-        os.close();
-        in.close();
-        client.close();
+        // String result = in.readLine();
 
+        // byte[] res = new byte[1024 * 1024 * 8];
 
-        out.println("<h1>Accepted input from chord</h1>");
-        out.println(result);
-        out.close();
+        String res = in.readLine();
+
+        if (res.equals("IP")) {
+            res = in.readLine();
+            os.close();
+            in.close();
+            client.close();
+            requestChord(res, tag, out);
+        } else if (res.equals("IMAGES")) {
+            while ((res = in.readLine()) != null) {
+                System.out.println("Read file " + res);
+                out.println("<img src=\"data:image/png;base64, " + res + "\" alt=\"Red dot\" />");
+            }
+        }
     }
 }

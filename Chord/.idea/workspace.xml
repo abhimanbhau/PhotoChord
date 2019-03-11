@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46afe717-614e-4a2a-a2f3-08f74d77de01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Chord_Service/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Chord_Service/src/ChordRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chord-UI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord-UI/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chord-UI/src/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord-UI/src/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edu/scu/thread/MessagePassingThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/thread/MessagePassingThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Chord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Chord/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu/scu/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/edu/scu/util/Constants.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/edu/scu/thread/MessagePassingThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="468">
+              <caret line="49" column="17" lean-forward="true" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,8 +49,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/edu/scu/util/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            <state relative-caret-position="215">
+              <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -228,7 +225,7 @@
       <workItem from="1552258102878" duration="54000" />
       <workItem from="1552258172065" duration="429000" />
       <workItem from="1552258657295" duration="5589000" />
-      <workItem from="1552265154706" duration="1306000" />
+      <workItem from="1552265154706" duration="6283000" />
     </task>
     <task id="LOCAL-00001" summary="cleanup">
       <created>1552252684047</created>
@@ -248,7 +245,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29405000" />
+    <option name="totallyTimeSpent" value="34382000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="0" />
@@ -306,7 +303,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/edu/scu/thread/MessagePassingThread.java</url>
-          <line>34</line>
+          <line>35</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -412,13 +409,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/edu/scu/util/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/edu/scu/util/Logger.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -429,10 +419,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/edu/scu/util/Constants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/edu/scu/thread/MessagePassingThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="468">
+          <caret line="49" column="17" lean-forward="true" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

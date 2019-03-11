@@ -9,6 +9,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.file.Files;
+import java.util.Base64;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -42,27 +43,36 @@ public class MessagePassingThread extends Thread {
                 out = new DataOutputStream(socket.getOutputStream());
 
                 Logger.log("accp tag: " + tag);
-
-                int tagNode = Constants.refMap.get(tag);
+                if(tag.equals("null")) return;
+                int tagNode = 0;
+                try {
+                    tagNode = Constants.refMap.get(tag);
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                    return;
+                }
                 if (tagNode == node.getId()) {
                     // Send images
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-                    ZipOutputStream zout = new ZipOutputStream(out);
+                    // out.write(baos.toByteArray());
 
-                    // Recurse through files
+                    out.writeBytes("IMAGES\r\n");
+
                     for(File file : new File(Constants._photoStoragePath).listFiles()) {
-                        byte[] fileData = Files.readAllBytes(file.toPath());
-                        zout.putNextEntry(new ZipEntry(file.getName()));
-                        zout.write(fileData);
-                        zout.closeEntry();
+                        Logger.log("Sending files: " + file.getName());
+                        String encoded = Base64.getEncoder().encodeToString(Files.readAllBytes(file.toPath()));
+                        out.writeBytes(encoded + "\r\n");
                     }
-                    zout.close();
+
 
                 } else {
                     // Send back the IP of correct node
 
                     Logger.log("Not valid node send back correct IP");
-                    out.writeBytes(Constants._nodeIpMap.get(tagNode));
+                    out.writeBytes("IP\r\n");
+                    out.writeBytes(Constants._nodeIpMap.get(tagNode) + "\r\n");
                 }
 
                 out.flush();
