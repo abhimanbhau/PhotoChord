@@ -42,6 +42,29 @@ public class HomeServlet extends HttpServlet {
         // byte[] res = new byte[1024 * 1024 * 8];
 
         String res = in.readLine();
+        out.println("<style>");
+
+        out.println("body {\n" +
+                "    width: 100%;\n" +
+                "    height: 100%;\n" +
+                "    margin: 0px;\n" +
+                "    padding: 0px;\n" +
+                "}\n" +
+                "\n" +
+                ".picture-grid {\n" +
+                "    display: grid;\n" +
+                "    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));\n" +
+                "    justify-items: center;\n" +
+                "    grid-gap 5px;\n" +
+                "    grid-row-gap: 0px;\n" +
+                "}\n" +
+                "\n" +
+                ".grid-box img {\n" +
+                "    width: 100%;\n" +
+                "}");
+
+        out.println("</style>");
+        out.println("<div class=\"picture-grid\">");
 
         if (res.equals("IP")) {
             res = in.readLine();
@@ -52,8 +75,11 @@ public class HomeServlet extends HttpServlet {
         } else if (res.equals("IMAGES")) {
             while ((res = in.readLine()) != null) {
                 System.out.println("Read file " + res);
-                out.println("<img src=\"data:image/png;base64, " + res + "\" alt=\"Red dot\" />");
+
+
+                out.println("<div class=\"grid-box\"> <img src=\"data:image/png;base64, " + res + "\" alt=\"Red dot\" > </img> </div>");
             }
+            out.println(" </div>");
         }
     }
 }
