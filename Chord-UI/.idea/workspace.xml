@@ -7,20 +7,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a56a667-c75b-4208-bc5f-39abfdfe65e8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ErrorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Chord/edu/scu/util/PersistentLogger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PicturesServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/core/Chord.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/core/Chord.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/core/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/core/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/thread/CommunicatorThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/thread/CommunicatorThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/thread/ListenerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/thread/ListenerThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/thread/MessagePassingThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/thread/MessagePassingThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/thread/PredecessorCheckThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/thread/PredecessorCheckThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/thread/StabilizeThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/thread/StabilizeThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/thread/UpdateFingersThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/thread/UpdateFingersThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/util/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/util/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chord/out/production/Chord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/out/production/Chord/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -223,12 +216,12 @@
       <workItem from="1552266333391" duration="5987000" />
       <workItem from="1552356521657" duration="739000" />
       <workItem from="1552357433175" duration="365000" />
-      <workItem from="1552381059342" duration="1128000" />
+      <workItem from="1552381059342" duration="1509000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10997000" />
+    <option name="totallyTimeSpent" value="11378000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="6" />

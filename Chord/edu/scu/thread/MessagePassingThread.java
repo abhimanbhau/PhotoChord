@@ -3,6 +3,7 @@ package edu.scu.thread;
 import edu.scu.core.Node;
 import edu.scu.util.Constants;
 import edu.scu.util.Logger;
+import edu.scu.util.PersistentLogger;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -33,13 +34,13 @@ public class MessagePassingThread extends Thread {
                 socket = serverSocket.accept();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-                Logger.log("Accepted curl req");
+                PersistentLogger.log("Accepted curl req");
                 String tag;
                 tag = reader.readLine();
 
                 out = new DataOutputStream(socket.getOutputStream());
 
-                Logger.log("accp tag: " + tag);
+                PersistentLogger.log("accp tag: " + tag);
                 if (tag.equals("null")) return;
                 int tagNode;
                 try {
@@ -57,7 +58,7 @@ public class MessagePassingThread extends Thread {
                     for (File file : new File(Constants._photoStoragePath).listFiles()) {
                         if (!file.getName().contains("jpg"))
                             continue;
-                        Logger.log("Sending files: " + file.getName());
+                        PersistentLogger.log("Sending files: " + file.getName());
                         String encoded = Base64.getEncoder().encodeToString(Files.readAllBytes(file.toPath()));
                         out.writeBytes(encoded + "\r\n");
                     }
@@ -66,7 +67,7 @@ public class MessagePassingThread extends Thread {
                 } else {
                     // Send back the IP of correct node
 
-                    Logger.log("Not valid node send back correct IP");
+                    PersistentLogger.log("Not valid node send back correct IP");
                     out.writeBytes("IP\r\n");
                     out.writeBytes(Constants._nodeIpMap.get(tagNode) + "\r\n");
                 }

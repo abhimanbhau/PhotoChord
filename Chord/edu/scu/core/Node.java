@@ -2,6 +2,7 @@ package edu.scu.core;
 
 import edu.scu.thread.*;
 import edu.scu.util.Logger;
+import edu.scu.util.PersistentLogger;
 import edu.scu.util.Util;
 
 import java.net.InetSocketAddress;
@@ -57,7 +58,7 @@ public class Node {
         if (contact != null && !contact.equals(localAddress)) {
             InetSocketAddress successor = Util.requestAddress(contact, "FINDSUCC_" + localId);
             if (successor == null) {
-                Logger.log("\nCannot find node you are trying to contact. Please exit.\n");
+                PersistentLogger.log("\nCannot find node you are trying to contact. Please exit.\n");
                 return false;
             }
             updateIthFinger(1, successor);
@@ -150,7 +151,7 @@ public class Node {
                     n = mostRecentlyAlive;
                     nextSuccessor = Util.requestAddress(n, "YOURSUCC");
                     if (nextSuccessor == null) {
-                        Logger.log("It's not possible.");
+                        PersistentLogger.log("It's not possible.");
                         return localAddress;
                     }
                     continue;
@@ -380,29 +381,29 @@ public class Node {
     }
 
     //    public void printNeighbors() {
-    //        Logger.log("\nListening on port: " + localAddress.getPort() + ".");
+    //        PersistentLogger.log("\nListening on port: " + localAddress.getPort() + ".");
     //        InetSocketAddress successor = finger.get(1);
     //
     //        // if it cannot find both predecessor and successor
     //        if ((predecessor == null || predecessor.equals(localAddress)) && (successor == null ||
     // successor.equals(localAddress))) {
-    //            Logger.log("You are your predecessor and successor");
+    //            PersistentLogger.log("You are your predecessor and successor");
     //        }
     //
     //        // else, it can find either predecessor or successor
     //        else {
     //            if (predecessor != null) {
-    //                Logger.log("Predecessor is node " + predecessor.getAddress().toString() + ", "
+    //                PersistentLogger.log("Predecessor is node " + predecessor.getAddress().toString() + ", "
     //                        + "port " + predecessor.getPort() + ".");
     //            } else {
-    //                Logger.log("Predecessor is updating.");
+    //                PersistentLogger.log("Predecessor is updating.");
     //            }
     //
     //            if (successor != null) {
-    //                Logger.log("Successor is node " + successor.getAddress().toString() + ", "
+    //                PersistentLogger.log("Successor is node " + successor.getAddress().toString() + ", "
     //                        + "port " + successor.getPort() + ".");
     //            } else {
-    //                Logger.log("Successor is updating.");
+    //                PersistentLogger.log("Successor is updating.");
     //            }
     //        }
     //    }

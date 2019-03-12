@@ -35,10 +35,10 @@ public class Util {
      */
     public static long hashSocketAddress(InetSocketAddress address) {
         //        return hashHashCode(address.hashCode());
-        //        Logger.log(address.getHostString());
+        //        PersistentLogger.log(address.getHostString());
         String lastTriplet =
                 address.getHostString().substring(address.getHostString().lastIndexOf(".") + 1);
-        //        Logger.log(lastTriplet);
+        //        PersistentLogger.log(lastTriplet);
         return Integer.parseInt(lastTriplet) % 32;
     }
 
@@ -66,7 +66,7 @@ public class Util {
         try {
             md = MessageDigest.getInstance("SHA-1");
         } catch (NoSuchAlgorithmException e) {
-            Logger.log("SHA-1 not found");
+            PersistentLogger.log("SHA-1 not found");
             e.printStackTrace();
         }
 
@@ -177,7 +177,7 @@ public class Util {
             PrintStream output = new PrintStream(talkSocket.getOutputStream());
             output.println(req);
         } catch (IOException e) {
-            // Logger.log("\nCannot send request to "+server.toString()+"\nRequest is: "+req+"\n");
+            // PersistentLogger.log("\nCannot send request to "+server.toString()+"\nRequest is: "+req+"\n");
             return null;
         }
 
@@ -192,7 +192,7 @@ public class Util {
         try {
             input = talkSocket.getInputStream();
         } catch (IOException e) {
-            Logger.log(
+            PersistentLogger.log(
                     "Cannot get input stream from " + server.toString() + "\nRequest is: " + req + "\n");
         }
 
@@ -232,7 +232,7 @@ public class Util {
             try {
                 mIp = InetAddress.getByName(ip);
             } catch (UnknownHostException e) {
-                Logger.log("Cannot create ip address: " + ip);
+                PersistentLogger.log("Cannot create ip address: " + ip);
                 return null;
             }
 
@@ -264,7 +264,7 @@ public class Util {
         try {
             line = reader.readLine();
         } catch (IOException e) {
-            Logger.log("Cannot read line from input stream.");
+            PersistentLogger.log("Cannot read line from input stream.");
             return null;
         }
 
