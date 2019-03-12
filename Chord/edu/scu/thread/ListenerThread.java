@@ -18,7 +18,7 @@ import java.net.Socket;
  */
 public class ListenerThread extends Thread {
 
-    private Node local;
+    private final Node local;
     private ServerSocket serverSocket;
     private boolean alive;
 
@@ -39,7 +39,7 @@ public class ListenerThread extends Thread {
     @Override
     public void run() {
         while (alive) {
-            Socket talkSocket = null;
+            Socket talkSocket;
             try {
                 talkSocket = serverSocket.accept();
             } catch (IOException e) {

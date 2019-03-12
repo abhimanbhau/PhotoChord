@@ -16,7 +16,7 @@ import java.net.InetSocketAddress;
  */
 public class StabilizeThread extends Thread {
 
-    private Node local;
+    private final Node local;
     private boolean alive;
 
     public StabilizeThread(Node local) {

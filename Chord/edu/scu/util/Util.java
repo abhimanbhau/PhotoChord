@@ -140,13 +140,6 @@ public class Util {
     }
 
     /**
-     * Get power of 2
-     */
-    public static long getPowerOfTwo(int k) {
-        return powerOfTwo.get(k);
-    }
-
-    /**
      * Generate requested address by sending request to server
      */
     public static InetSocketAddress requestAddress(InetSocketAddress server, String req) {
@@ -176,7 +169,7 @@ public class Util {
 
         if (server == null || req == null) return null;
 
-        Socket talkSocket = null;
+        Socket talkSocket;
 
         // try to open talkSocket, output request to this socket
         try {
@@ -235,7 +228,7 @@ public class Util {
             }
 
             // parse ip address
-            InetAddress mIp = null;
+            InetAddress mIp;
             try {
                 mIp = InetAddress.getByName(ip);
             } catch (UnknownHostException e) {
@@ -267,7 +260,7 @@ public class Util {
 
         // try to read line from input stream
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-        String line = null;
+        String line;
         try {
             line = reader.readLine();
         } catch (IOException e) {

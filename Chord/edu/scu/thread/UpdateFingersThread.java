@@ -16,10 +16,10 @@ import java.util.Random;
  */
 public class UpdateFingersThread extends Thread {
 
-    private Random random;
+    private final Random random;
+    private final Node local;
     private boolean alive;
     private int lastFinger = 0;
-    private Node local;
 
     public UpdateFingersThread(Node node) {
         local = node;

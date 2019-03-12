@@ -16,7 +16,7 @@ import java.net.InetSocketAddress;
  */
 public class PredecessorCheckThread extends Thread {
 
-    private Node local;
+    private final Node local;
     private boolean alive;
 
     public PredecessorCheckThread(Node local) {

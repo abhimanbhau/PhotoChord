@@ -14,10 +14,10 @@ public class Constants {
     public static final int _mpiPort = 5678;
     public static final String _photoStoragePath = "/Users/akolte/pics";
 
-    public static HashMap<String, Integer> refMap =
+    public static final HashMap<String, Integer> _refMap =
             new HashMap<String, Integer>() {
                 {
-                    put("Games", 31);
+                    put("Games", 25);
                     put("Movies", 2);
                     put("Cities", 3);
                     put("Nature", 4);
@@ -25,9 +25,9 @@ public class Constants {
                 }
             };
 
-    public static HashMap<Integer, String> _nodeIpMap = new HashMap<Integer, String>() {
+    public static final HashMap<Integer, String> _nodeIpMap = new HashMap<Integer, String>() {
         {
-            put(31, "172.21.102.189");
+            put(25, "172.21.102.189");
             put(2, "121.2.11.1");
             put(3, "121.2.4.6");
             put(4, "121.1.3.5");

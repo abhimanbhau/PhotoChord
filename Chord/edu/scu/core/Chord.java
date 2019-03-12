@@ -52,7 +52,7 @@ public class Chord {
         Chord chord = new Chord();
         int value = chord.parseArguments(args);
 
-        String port = "";
+        String port;
 
         // create chord ring
         if (value == 2) {

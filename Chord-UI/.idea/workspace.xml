@@ -7,10 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a56a667-c75b-4208-bc5f-39abfdfe65e8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ErrorHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PicturesServlet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/core/Chord.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/core/Chord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/core/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/core/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/thread/CommunicatorThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/thread/CommunicatorThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/thread/ListenerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/thread/ListenerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/thread/MessagePassingThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/thread/MessagePassingThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/thread/PredecessorCheckThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/thread/PredecessorCheckThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/thread/StabilizeThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/thread/StabilizeThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/thread/UpdateFingersThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/thread/UpdateFingersThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/util/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/util/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Chord/edu/scu/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/edu/scu/util/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Chord/out/production/Chord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Chord/out/production/Chord/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,25 +33,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PicturesServlet.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/HomeServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="243">
+              <caret line="90" column="67" selection-start-line="90" selection-start-column="67" selection-end-line="90" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/HomeServlet.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ErrorHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+            <state relative-caret-position="90">
+              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -53,6 +71,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/ErrorHandler.java" />
         <option value="$PROJECT_DIR$/src/HomeServlet.java" />
       </list>
     </option>
@@ -60,8 +79,8 @@
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -75,6 +94,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -96,7 +116,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -204,25 +223,26 @@
       <workItem from="1552266333391" duration="5987000" />
       <workItem from="1552356521657" duration="739000" />
       <workItem from="1552357433175" duration="365000" />
+      <workItem from="1552381059342" duration="1128000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9869000" />
+    <option name="totallyTimeSpent" value="10997000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="832" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49171272" visible="true" weight="0.26752505" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48971194" visible="true" weight="0.27110156" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Web" order="2" sideWeight="0.5082873" side_tool="true" visible="true" weight="0.26752505" />
+      <window_info id="Web" order="2" sideWeight="0.51028806" side_tool="true" visible="true" weight="0.27110156" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32872927" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32872927" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39917126" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -258,10 +278,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ErrorHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/HomeServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+        <state relative-caret-position="243">
+          <caret line="90" column="67" selection-start-line="90" selection-start-column="67" selection-end-line="90" selection-end-column="67" />
         </state>
       </provider>
     </entry>

@@ -20,8 +20,8 @@ import java.net.Socket;
  */
 class CommunicatorThread implements Runnable {
 
-    private Socket talkSocket;
-    private Node local;
+    private final Socket talkSocket;
+    private final Node local;
 
     public CommunicatorThread(Socket socket, Node local) {
         talkSocket = socket;
@@ -29,8 +29,8 @@ class CommunicatorThread implements Runnable {
     }
 
     public void run() {
-        InputStream input = null;
-        OutputStream output = null;
+        InputStream input;
+        OutputStream output;
         try {
             input = talkSocket.getInputStream();
             String request = Util.inputStreamToString(input);
@@ -51,7 +51,7 @@ class CommunicatorThread implements Runnable {
     }
 
     private String processRequest(String request) {
-        InetSocketAddress result = null;
+        InetSocketAddress result;
         String ret = null;
 
         if (request == null) {

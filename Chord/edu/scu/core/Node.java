@@ -17,16 +17,15 @@ import java.util.HashMap;
  */
 public class Node {
 
-    private long localId;
-    private InetSocketAddress localAddress;
+    private final long localId;
+    private final InetSocketAddress localAddress;
+    private final HashMap<Integer, InetSocketAddress> finger;
+    private final ListenerThread listenerThread;
+    private final StabilizeThread stabilizeThread;
+    private final UpdateFingersThread fixFingers;
+    private final PredecessorCheckThread askPredecessor;
+    private final MessagePassingThread mpiThread;
     private InetSocketAddress predecessor;
-    private HashMap<Integer, InetSocketAddress> finger;
-
-    private ListenerThread listenerThread;
-    private StabilizeThread stabilizeThread;
-    private UpdateFingersThread fixFingers;
-    private PredecessorCheckThread askPredecessor;
-    private MessagePassingThread mpiThread;
 
     public Node(InetSocketAddress address) {
         localAddress = address;
@@ -271,7 +270,7 @@ public class Node {
         if (successor == null) return;
 
         // find the last existence of successor in the finger table
-        int i = 32;
+        int i;
         for (i = 32; i > 0; i--) {
             InetSocketAddress ithFinger = finger.get(i);
             if (ithFinger != null && ithFinger.equals(successor)) break;
@@ -294,7 +293,7 @@ public class Node {
         // it's predecessor until local node's new successor has been found
         if (predecessor != null && !predecessor.equals(localAddress)) {
             InetSocketAddress p = predecessor;
-            InetSocketAddress previousPredecessor = null;
+            InetSocketAddress previousPredecessor;
             while (true) {
                 previousPredecessor = Util.requestAddress(p, "YOURPRE");
                 if (previousPredecessor == null) break;

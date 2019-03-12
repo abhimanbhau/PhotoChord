@@ -3,18 +3,15 @@ package edu.scu.thread;
 import edu.scu.core.Node;
 import edu.scu.util.Constants;
 import edu.scu.util.Logger;
-import sun.rmi.runtime.Log;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.file.Files;
 import java.util.Base64;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
 
 public class MessagePassingThread extends Thread {
-    Node node;
+    private Node node;
     private ServerSocket serverSocket;
     private Socket socket;
     private boolean _run = true;
@@ -34,7 +31,7 @@ public class MessagePassingThread extends Thread {
         while (_run) {
             try {
                 socket = serverSocket.accept();
-                BufferedReader reader = new BufferedReader( new InputStreamReader(socket.getInputStream()));
+                BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
                 Logger.log("Accepted curl req");
                 String tag;
@@ -43,12 +40,11 @@ public class MessagePassingThread extends Thread {
                 out = new DataOutputStream(socket.getOutputStream());
 
                 Logger.log("accp tag: " + tag);
-                if(tag.equals("null")) return;
-                int tagNode = 0;
+                if (tag.equals("null")) return;
+                int tagNode;
                 try {
-                    tagNode = Constants.refMap.get(tag);
-                }
-                catch (Exception e) {
+                    tagNode = Constants._refMap.get(tag);
+                } catch (Exception e) {
                     e.printStackTrace();
                     return;
                 }
@@ -56,11 +52,11 @@ public class MessagePassingThread extends Thread {
                     // Send images
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-                    // out.write(baos.toByteArray());
-
                     out.writeBytes("IMAGES\r\n");
 
-                    for(File file : new File(Constants._photoStoragePath).listFiles()) {
+                    for (File file : new File(Constants._photoStoragePath).listFiles()) {
+                        if (!file.getName().contains("jpg"))
+                            continue;
                         Logger.log("Sending files: " + file.getName());
                         String encoded = Base64.getEncoder().encodeToString(Files.readAllBytes(file.toPath()));
                         out.writeBytes(encoded + "\r\n");

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 
 @WebServlet("/home")
@@ -27,12 +28,18 @@ public class HomeServlet extends HttpServlet {
 
     }
 
-    private void handleImages(OutputStream out, String res) throws IOException {
-
-    }
-
     private void requestChord(String IP, String tag, PrintWriter out) throws IOException {
-        Socket client = new Socket(IP, 5678);
+        Socket client = new Socket();
+
+        long time = System.currentTimeMillis();
+
+        try {
+            client.connect(new InetSocketAddress(IP, 5678), 2000);
+        }
+        catch (Exception e) {
+            ErrorHandler.ShowSocketError(out, e.getMessage() + " IP: " + IP);
+            return;
+        }
         BufferedWriter os = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
         BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
         os.write(tag + "\r\n");
@@ -80,6 +87,10 @@ public class HomeServlet extends HttpServlet {
                 out.println("<div class=\"grid-box\"> <img src=\"data:image/png;base64, " + res + "\" alt=\"Red dot\" > </img> </div>");
             }
             out.println(" </div>");
+
+            out.println("<br /><br /> <h3><b>Total time: " + (float)(System.currentTimeMillis() - time)/1000 +"s </b></h3>");
         }
     }
+
+
 }
