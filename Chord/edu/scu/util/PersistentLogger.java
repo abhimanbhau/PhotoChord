@@ -6,12 +6,13 @@ import java.util.Random;
 
 public class PersistentLogger {
     static PersistentLogger _logger;
+    static FileWriter _log;
 
     static {
-            _logger = new PersistentLogger();
+        _logger = new PersistentLogger();
     }
 
-    static FileWriter _log;
+    int random = new Random().nextInt(1000);
 
     {
         try {
@@ -20,8 +21,6 @@ public class PersistentLogger {
             e.printStackTrace();
         }
     }
-
-    int random = new Random().nextInt(1000);
 
     private PersistentLogger() {
         PersistentLogger.log("Logger started: log" + random + ".txt");
@@ -39,7 +38,7 @@ public class PersistentLogger {
         }
     }
 
-    public static void log(String s)  {
+    public static void log(String s) {
         try {
             _log.write("PhotoChord Debug: " + s);
         } catch (IOException e) {

@@ -17,7 +17,7 @@ public class Constants {
     public static final HashMap<String, Integer> _refMap =
             new HashMap<String, Integer>() {
                 {
-                    put("Games", 25);
+                    put("Games", 6);
                     put("Movies", 2);
                     put("Cities", 3);
                     put("Nature", 4);

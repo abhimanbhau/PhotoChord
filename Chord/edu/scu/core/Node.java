@@ -442,5 +442,6 @@ public class Node {
         if (fixFingers != null) fixFingers.toDie();
         if (stabilizeThread != null) stabilizeThread.toDie();
         if (askPredecessor != null) askPredecessor.toDie();
+        //if(mpiThread != null) mpiThread.finish();
     }
 }

@@ -1,7 +1,1 @@
-PhotoChord Debug: Logger started: log260.txtPhotoChord Debug: 
---------------------------------------------------------------PhotoChord Debug: 
-Local: /192.168.0.25:9000PhotoChord Debug: 
-Predecessor: nullPhotoChord Debug: 
-Finger table: 
-PhotoChord Debug: 1	nullPhotoChord Debug: 2	/192.168.0.25:9000	25PhotoChord Debug: 3	nullPhotoChord Debug: 4	/192.168.0.25:9000	25PhotoChord Debug: 5	/192.168.0.25:9000	25PhotoChord Debug: 
---------------------------------------------------------------
+PhotoChord Debug: Logger started: log221.txt

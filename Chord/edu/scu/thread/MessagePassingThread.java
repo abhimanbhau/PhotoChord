@@ -2,7 +2,6 @@ package edu.scu.thread;
 
 import edu.scu.core.Node;
 import edu.scu.util.Constants;
-import edu.scu.util.Logger;
 import edu.scu.util.PersistentLogger;
 
 import java.io.*;
@@ -35,6 +34,7 @@ public class MessagePassingThread extends Thread {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
                 PersistentLogger.log("Accepted curl req");
+
                 String tag;
                 tag = reader.readLine();
 
@@ -84,16 +84,6 @@ public class MessagePassingThread extends Thread {
                     e1.printStackTrace();
                 }
             }
-        }
-    }
-
-    public void finish() {
-        _run = false;
-        try {
-            socket.close();
-            serverSocket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

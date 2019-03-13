@@ -35,8 +35,7 @@ public class HomeServlet extends HttpServlet {
 
         try {
             client.connect(new InetSocketAddress(IP, 5678), 2000);
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             ErrorHandler.ShowSocketError(out, e.getMessage() + " IP: " + IP);
             return;
         }
@@ -83,12 +82,10 @@ public class HomeServlet extends HttpServlet {
             while ((res = in.readLine()) != null) {
                 System.out.println("Read file " + res);
 
-
                 out.println("<div class=\"grid-box\"> <img src=\"data:image/png;base64, " + res + "\" alt=\"Red dot\" > </img> </div>");
             }
             out.println(" </div>");
-
-            out.println("<br /><br /> <h3><b>Total time: " + (float)(System.currentTimeMillis() - time)/1000 +"s </b></h3>");
+            out.println("<br /><br /> <h3><b>Total time: " + (float) (System.currentTimeMillis() - time) / 1000 + "s </b></h3>");
         }
     }
 
