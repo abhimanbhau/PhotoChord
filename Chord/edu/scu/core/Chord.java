@@ -1,5 +1,6 @@
 package edu.scu.core;
 
+import edu.scu.util.Constants;
 import edu.scu.util.Logger;
 import edu.scu.util.PersistentLogger;
 import edu.scu.util.Util;
@@ -21,24 +22,24 @@ public class Chord {
     private static InetSocketAddress contactNode;
     private Util util = new Util();
 
-    //    private static String getOwnIp() {
-    //        try {
-    //            URL whatismyip = new URL("http://checkip.amazonaws.com");
-    //            BufferedReader in = new BufferedReader(new InputStreamReader(
-    //                    whatismyip.openStream()));
-    //
-    //            String ip = in.readLine(); //you get the IP as a String
-    //            return InetAddress.getByName(ip).getHostAddress();
-    //        } catch (UnknownHostException error) {
-    //            error.printStackTrace();
-    //            return null;
-    //        } catch (MalformedURLException e) {
-    //            e.printStackTrace();
-    //        } catch (IOException e) {
-    //            e.printStackTrace();
-    //        }
-    //        return null;
-    //    }
+//        private static String getOwnIp() {
+//            try {
+//                URL whatismyip = new URL("http://checkip.amazonaws.com");
+//                BufferedReader in = new BufferedReader(new InputStreamReader(
+//                        whatismyip.openStream()));
+//
+//                String ip = in.readLine(); //you get the IP as a String
+//                return InetAddress.getByName(ip).getHostAddress();
+//            } catch (UnknownHostException error) {
+//                error.printStackTrace();
+//                return null;
+//            } catch (MalformedURLException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            return null;
+//        }
 
     private static String getOwnIp() {
         try {
@@ -54,6 +55,11 @@ public class Chord {
         int value = chord.parseArguments(args);
 
         String port;
+
+
+        if (!Constants.initConfig()) {
+            System.exit(-1);
+        }
 
         // create chord ring
         if (value == 2) {

@@ -1,0 +1,5 @@
+Games,7
+Movies,22
+Cities,25
+Nature,9
+Car,2

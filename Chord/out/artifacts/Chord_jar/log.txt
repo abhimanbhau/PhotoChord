@@ -1,1 +1,0 @@
-PhotoChord Debug: Logger started: log57.txtPhotoChord Debug: Accepted curl reqPhotoChord Debug: accp tag: GamesPhotoChord Debug: Not valid node send back correct IPPhotoChord Debug: Accepted curl reqPhotoChord Debug: accp tag: GamesPhotoChord Debug: Not valid node send back correct IP

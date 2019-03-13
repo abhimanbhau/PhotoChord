@@ -1,1 +1,0 @@
-PhotoChord Debug: Logger started: log221.txt
